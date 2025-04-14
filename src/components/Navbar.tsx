@@ -1,24 +1,39 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Menu, X, Globe, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+      
+      // Set scrolled state for styling
+      setIsScrolled(currentScrollY > 10);
+      
+      // Update last scroll position
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navItems = [
     { name: 'About', path: '/about' },
@@ -30,105 +45,177 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  // Animation variants
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        when: "afterChildren",
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    },
+    open: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.4,
+        when: "beforeChildren",
+        staggerChildren: 0.05,
+        staggerDirection: 1
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, y: -5 },
+    open: { opacity: 1, y: 0 }
+  };
+
   return (
-    <nav className={cn(
-      'fixed w-full z-50 transition-all duration-300',
-      isScrolled ? 'bg-festival-darker/90 backdrop-blur-sm shadow-md' : 'bg-transparent'
-    )}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16">
+    <motion.nav 
+      className={cn(
+        'fixed w-full z-50 transition-all duration-300',
+        isScrolled 
+          ? 'bg-black/80 backdrop-blur-md py-3' 
+          : 'bg-transparent py-6'
+      )}
+      animate={{ 
+        y: scrollDirection === 'down' && isScrolled && !isOpen ? -100 : 0,
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-white font-display text-xl font-bold">
-            OnScreen '25
+          <Link to="/" className="text-white font-display text-xl font-bold tracking-wider relative z-50">
+            <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+              OnScreen <span className="text-festival-red">'25</span>
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                className="text-white/80 hover:text-white text-sm font-medium tracking-wide transition-colors duration-300 relative overflow-hidden group py-2"
               >
                 {item.name}
+                <span className="absolute left-0 bottom-0 w-full h-px bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
           </div>
 
           {/* Social & Language */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
-              <a href="#" className="text-white/70 hover:text-white transition-colors">
-                <Facebook size={16} />
-              </a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors">
-                <Twitter size={16} />
-              </a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors">
-                <Instagram size={16} />
-              </a>
-              <a href="#" className="text-white/70 hover:text-white transition-colors">
-                <Youtube size={16} />
-              </a>
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
+              {[
+                { icon: <Facebook size={16} />, url: "#" },
+                { icon: <Twitter size={16} />, url: "#" },
+                { icon: <Instagram size={16} />, url: "#" },
+                { icon: <Youtube size={16} />, url: "#" }
+              ].map((social, i) => (
+                <motion.a 
+                  key={i}
+                  href={social.url} 
+                  className="text-white/70 hover:text-white transition-colors duration-300"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
             </div>
             <div className="border-l border-white/20 h-5" />
-            <div className="flex items-center space-x-2">
-              <button className="text-white/70 hover:text-white flex items-center transition-colors">
+            <div className="flex items-center">
+              <motion.button 
+                className="text-white/70 hover:text-white flex items-center transition-colors duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Globe size={16} className="mr-1" />
                 <span className="text-sm">EN</span>
-              </button>
+              </motion.button>
             </div>
           </div>
 
           {/* Mobile Navigation Trigger */}
-          <button
+          <motion.button
             onClick={toggleMenu}
-            className="md:hidden text-white"
+            className="lg:hidden text-white relative z-50"
             aria-label="Toggle Menu"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </motion.button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-festival-darker">
-          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded-md"
-                onClick={toggleMenu}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-24 pb-8 overflow-auto"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+          >
+            <div className="container mx-auto px-6">
+              <motion.div className="flex flex-col space-y-4" variants={itemVariants}>
+                {navItems.map((item, i) => (
+                  <motion.div key={item.name} variants={itemVariants}>
+                    <Link
+                      to={item.path}
+                      className="block py-3 text-white text-2xl font-light hover:text-festival-red transition-colors duration-300"
+                      onClick={toggleMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+              
+              <motion.div 
+                className="mt-12 pt-8 border-t border-white/10 flex flex-col space-y-8"
+                variants={itemVariants}
               >
-                {item.name}
-              </Link>
-            ))}
-            <div className="border-t border-white/10 mt-4 pt-4 flex justify-between items-center px-3">
-              <div className="flex space-x-4">
-                <a href="#" className="text-white/70 hover:text-white">
-                  <Facebook size={18} />
-                </a>
-                <a href="#" className="text-white/70 hover:text-white">
-                  <Twitter size={18} />
-                </a>
-                <a href="#" className="text-white/70 hover:text-white">
-                  <Instagram size={18} />
-                </a>
-                <a href="#" className="text-white/70 hover:text-white">
-                  <Youtube size={18} />
-                </a>
-              </div>
-              <button className="text-white/70 hover:text-white flex items-center">
-                <Globe size={18} className="mr-1" />
-                <span>EN</span>
-              </button>
+                {/* Social Links */}
+                <div className="flex justify-center space-x-6">
+                  {[
+                    { icon: <Facebook size={20} />, url: "#" },
+                    { icon: <Twitter size={20} />, url: "#" },
+                    { icon: <Instagram size={20} />, url: "#" },
+                    { icon: <Youtube size={20} />, url: "#" }
+                  ].map((social, i) => (
+                    <a 
+                      key={i}
+                      href={social.url} 
+                      className="text-white/70 hover:text-white transition-colors duration-300"
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+                
+                {/* Language */}
+                <div className="flex justify-center">
+                  <button className="text-white/70 hover:text-white flex items-center transition-colors duration-300">
+                    <Globe size={18} className="mr-2" />
+                    <span className="text-sm uppercase tracking-wide">English</span>
+                  </button>
+                </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 
