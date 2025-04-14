@@ -125,11 +125,7 @@ const FestivalTimeline = () => {
       </div>
       
       {/* Decorative film strip */}
-      <div className="absolute bottom-0 left-0 right-0 h-8 bg-black/50 flex overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div key={i} className="h-full w-8 border-r border-white/10"></div>
-        ))}
-      </div>
+
     </section>
   );
 };
