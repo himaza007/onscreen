@@ -56,12 +56,6 @@ const Footer = () => {
       {/* Background texture/pattern */}
       <div className="absolute inset-0 bg-[url('/film-grain.png')] opacity-5 mix-blend-overlay pointer-events-none"></div>
       
-      {/* Decorative film strip at top */}
-      <div className="h-4 w-full flex overflow-hidden">
-        {[...Array(32)].map((_, i) => (
-          <div key={i} className="h-full w-8 border-r border-white/10"></div>
-        ))}
-      </div>
       
       <motion.div 
         className="container mx-auto px-6 py-16"
