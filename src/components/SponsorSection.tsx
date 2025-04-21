@@ -380,8 +380,7 @@ const SponsorsSection = () => {
           className="flex flex-col items-center mt-20 relative"
           initial={{ opacity: 0, y: 30 }}
           animate={isCTAInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7 }}
-        >
+          transition={{ duration: 0.7 }}>
           <div className="absolute -z-10 inset-0 opacity-30">
             <div className="absolute inset-0 bg-gradient-radial from-festival-red/20 to-transparent blur-xl"></div>
           </div>
@@ -395,18 +394,6 @@ const SponsorsSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button 
-                className="bg-festival-red hover:bg-festival-red/90 text-white flex items-center gap-2 py-6 px-8 rounded-none group overflow-hidden relative"
-                asChild
-              >
-                <a href="/sponsorship-proposal.pdf" target="_blank" rel="noopener">
-                  <span className="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                  <span className="relative flex items-center">
-                    <Download size={18} className="mr-2" />
-                    Download Proposal
-                  </span>
-                </a>
-              </Button>
               
               <Button 
                 variant="outline" 
