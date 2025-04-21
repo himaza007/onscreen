@@ -111,7 +111,6 @@ const Footer = () => {
                 { name: 'Timeline', path: '/timeline' },
                 { name: 'Workshops', path: '/workshops' },
                 { name: 'Submit Your Film', path: '/submit' },
-                { name: 'Jury', path: '/jury' },
                 { name: 'News', path: '/news' },
                 { name: 'Contact Us', path: '/contact' },
               ].map((item) => (
@@ -140,9 +139,9 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-festival-red mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-white/70 text-sm">
-                  Colombo Film Center,<br/>
-                  Independence Square,<br/>
-                  Colombo, Sri Lanka
+                  IIT City Office,<br/>
+                  435 Galle Road,<br/>
+                  Colombo 03, Sri Lanka
                 </span>
               </li>
               <li className="flex items-center">
@@ -151,7 +150,7 @@ const Footer = () => {
                   href="mailto:info@onscreen25.com" 
                   className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                 >
-                  info@onscreen25.com
+                  onscreenfilmfest@gmail.com
                 </a>
               </li>
               <li className="flex items-center">
@@ -160,7 +159,7 @@ const Footer = () => {
                   href="tel:+94123456789" 
                   className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                 >
-                  +94 123 456 789
+                  +94 774 838 430
                 </a>
               </li>
             </ul>
