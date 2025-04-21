@@ -94,7 +94,7 @@ const SponsorsSection = () => {
     },
     {
       id: 5,
-      title: 'Browns Sponsor',
+      title: 'Bronze Sponsor',
       price: 'Contact for details',
       icon: <Users className="h-6 w-6" />,
       color: 'from-blue-500 to-indigo-600',
