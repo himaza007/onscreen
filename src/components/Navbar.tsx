@@ -80,7 +80,7 @@ const Navbar = () => {
         'fixed w-full z-50 transition-all duration-300',
         isScrolled 
           ? 'bg-black/30 backdrop-blur-sm py-3' // Changed to more transparent background
-          : 'bg-transparent py-6'
+          : 'bg-transparent py-1'
       )}
       animate={{ 
         y: scrollDirection === 'down' && isScrolled && !isOpen ? -100 : 0,

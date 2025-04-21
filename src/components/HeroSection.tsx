@@ -96,7 +96,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
               size="lg" 
               className="bg-festival-red hover:bg-festival-red/90 text-white tracking-wide px-10 py-6 rounded-none transition-all duration-300 text-sm uppercase border border-festival-red hover:border-white"
             >
-              Submit Your Film
+              Register Now
             </Button>
           </motion.div>
         </div>

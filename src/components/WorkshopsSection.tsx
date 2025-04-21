@@ -49,16 +49,7 @@ const WorkshopsSection = () => {
       image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=500',
       description: 'Master the art of creating immersive soundscapes for film.'
     },
-    {
-      id: 4,
-      title: 'Documentary Filmmaking',
-      instructor: 'Lisa Wang',
-      date: 'July 19, 2025',
-      time: '2:00 PM - 6:00 PM',
-      location: 'Workshop Room 2',
-      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=500',
-      description: 'Discover techniques for authentic and compelling documentary storytelling.'
-    }
+
   ];
   
   const containerVariants = {
@@ -195,11 +186,7 @@ const WorkshopsSection = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <Button 
-            className="bg-transparent border border-white/20 text-white hover:border-festival-red hover:text-festival-red transition-all duration-300 px-8 py-6 rounded-none uppercase tracking-wider text-sm"
-          >
-            View All Workshops
-          </Button>
+          
         </motion.div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-festival-red to-transparent"></div>
