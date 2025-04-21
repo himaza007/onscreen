@@ -111,7 +111,7 @@ const Footer = () => {
                 { name: 'Timeline', path: '/timeline' },
                 { name: 'Workshops', path: '/workshops' },
                 { name: 'Submit Your Film', path: '/submit' },
-                { name: 'Sponsors', path: '/sponsors' },
+                { name: 'Sponsor', path: '/sponsors' },
                 { name: 'News', path: '/news' },
                 { name: 'Contact Us', path: '/contact' },
               ].map((item) => (

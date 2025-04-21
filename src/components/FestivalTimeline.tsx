@@ -247,23 +247,7 @@ const FestivalTimeline = () => {
             ))}
           </div>
         </div>
-        
-        {/* CTA Button */}
-        <motion.div 
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7, delay: 1 }}
-        >
-          <button className="bg-festival-red hover:bg-festival-red/90 text-white px-8 py-3 border border-festival-red hover:border-white transition-all duration-300 group">
-            <span className="flex items-center gap-2">
-              <span>View Complete Schedule</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </span>
-          </button>
-        </motion.div>
+ 
       </div>
       
       {/* Enhanced decorative film strip */}

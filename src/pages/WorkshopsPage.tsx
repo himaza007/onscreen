@@ -42,7 +42,7 @@ const WorkshopsPage = () => {
               animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              Workshops & Masterclasses
+              Workshop Series
             </motion.h1>
             
             <motion.div 
@@ -106,7 +106,7 @@ const WorkshopsPage = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-festival-red/10 mb-4">
                   <CalendarCheck className="w-8 h-8 text-festival-red" />
                 </div>
-                <h3 className="text-3xl font-bold mb-2">12</h3>
+                <h3 className="text-3xl font-bold mb-2">3</h3>
                 <p className="text-white/60 uppercase tracking-wide text-sm">Workshops</p>
               </motion.div>
               
@@ -120,7 +120,7 @@ const WorkshopsPage = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-festival-red/10 mb-4">
                   <Users className="w-8 h-8 text-festival-red" />
                 </div>
-                <h3 className="text-3xl font-bold mb-2">8</h3>
+                <h3 className="text-3xl font-bold mb-2">6</h3>
                 <p className="text-white/60 uppercase tracking-wide text-sm">Expert Instructors</p>
               </motion.div>
               
@@ -134,7 +134,7 @@ const WorkshopsPage = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-festival-red/10 mb-4">
                   <Clock className="w-8 h-8 text-festival-red" />
                 </div>
-                <h3 className="text-3xl font-bold mb-2">40+</h3>
+                <h3 className="text-3xl font-bold mb-2">8+</h3>
                 <p className="text-white/60 uppercase tracking-wide text-sm">Hours of Learning</p>
               </motion.div>
             </motion.div>
@@ -153,24 +153,23 @@ const WorkshopsPage = () => {
               </h2>
               <div className="space-y-6 text-white/80">
                 <p>
-                  Workshops have limited capacity and require pre-registration. Festival pass holders 
-                  receive priority access and discounted rates for all workshops.
+                  Workshops have limited capacity and require pre-registration.
                 </p>
                 <div className="grid md:grid-cols-2 gap-8 pt-4">
                   <div>
                     <h3 className="text-xl font-medium mb-3 text-festival-red">Registration Process</h3>
                     <ol className="list-decimal pl-5 space-y-2">
-                      <li>Create an account on our festival platform</li>
-                      <li>Browse available workshops</li>
-                      <li>Select desired workshops and complete payment</li>
-                      <li>Receive confirmation email with details</li>
+                      <li>Stay on alert by following our socials</li>
+                      <li>Follow the link</li>
+                      <li>Submit the form</li>
+                      <li>Receive confirmation and attend</li>
                     </ol>
                   </div>
                   <div>
                     <h3 className="text-xl font-medium mb-3 text-festival-red">What to Bring</h3>
                     <ul className="list-disc pl-5 space-y-2">
                       <li>Notebook and writing instruments</li>
-                      <li>Laptop (for technical workshops)</li>
+                      <li>Laptop (Optional)</li>
                       <li>Any specific equipment mentioned in workshop details</li>
                       <li>Your questions and creative energy!</li>
                     </ul>

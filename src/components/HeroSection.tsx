@@ -4,7 +4,6 @@ import { useToast } from '@/components/ui/use-toast';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface HeroSectionProps {
-  // Changed the type to accept a function that returns void
   onSubmitClick?: () => void;
 }
 
@@ -36,6 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
   return (
     <section 
       className="relative h-screen w-full overflow-hidden flex items-center justify-center"
+      style={{ marginTop: '-0px' }} // This removes any potential top margin
     >
       {/* Background with parallax effect */}
       <motion.div 
@@ -64,12 +64,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
         */}
       </motion.div>
       
-      {/* Gradient overlay for better text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
-      
-      {/* Cinematic letterbox effect (optional) */}
-      <div className="absolute inset-x-0 top-0 h-10 bg-black z-20 hidden md:block"></div>
-      <div className="absolute inset-x-0 bottom-0 h-10 bg-black z-20 hidden md:block"></div>
+      {/* Extended gradient overlay to cover the entire section including the top */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 z-10"></div>
       
       {/* Content */}
       <motion.div 
