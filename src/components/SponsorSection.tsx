@@ -91,6 +91,20 @@ const SponsorsSection = () => {
         'Recognition in the festival program',
         'Invitation to special screenings'
       ]
+    },
+    {
+      id: 5,
+      title: 'Browns Sponsor',
+      price: 'Contact for details',
+      icon: <Users className="h-6 w-6" />,
+      color: 'from-blue-500 to-indigo-600',
+      perks: [
+        'Logo listed on the official sponsor wall',
+        'Certificate of appreciation',
+        'Social media mention',
+        'Recognition in the festival program',
+        'Invitation to special screenings'
+      ]
     }
   ];
   
