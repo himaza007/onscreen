@@ -40,7 +40,7 @@ const Navbar = () => {
     { name: 'Timeline', path: '/timeline' },
     { name: 'Workshops', path: '/workshops' },
     { name: 'Submit', path: '/submit' },
-    { name: 'Jury', path: '/jury' },
+    { name: 'Sponsors', path: '/sponsors' }, // Added Sponsors link
     { name: 'News', path: '/news' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -79,7 +79,7 @@ const Navbar = () => {
       className={cn(
         'fixed w-full z-50 transition-all duration-300',
         isScrolled 
-          ? 'bg-black/80 backdrop-blur-md py-3' 
+          ? 'bg-black/30 backdrop-blur-sm py-3' // Changed to more transparent background
           : 'bg-transparent py-6'
       )}
       animate={{ 

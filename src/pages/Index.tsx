@@ -4,7 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import FestivalHighlights from '@/components/FestivalHighlights';
 import FestivalTimeline from '@/components/FestivalTimeline';
 import WorkshopsSection from '@/components/WorkshopsSection';
-import JurySection from '@/components/JurySection';
+import SponsorsSection from '@/components/SponsorSection'; // Changed from JurySection
 import NewsSection from '@/components/NewsSection';
 import Footer from '@/components/Footer';
 import SubmitFilmModal from '@/components/SubmitFilmModal';
@@ -74,7 +74,7 @@ const Index = () => {
           <FestivalHighlights />
           <FestivalTimeline />
           <WorkshopsSection />
-          <JurySection />
+          <SponsorsSection /> {/* Changed from JurySection */}
           <NewsSection />
           <Footer />
         </motion.div>
