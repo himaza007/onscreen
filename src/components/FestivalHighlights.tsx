@@ -8,20 +8,20 @@ const FestivalHighlights = () => {
   
   const highlights = [
     {
-      title: 'Film Submissions',
+      title: 'Short Film Festival',
       description: 'Open to filmmakers worldwide. Submit your short film and showcase your talent on an international platform.',
       icon: <Film className="h-12 w-12 text-festival-red" />,
       delay: 0.2
     },
     {
-      title: 'Workshops & Masterclasses',
+      title: 'Hands on Workshop series',
       description: 'Learn from industry experts through our unique workshops and masterclasses focused on various aspects of filmmaking.',
       icon: <Award className="h-12 w-12 text-[#D4AF37]" />,
       delay: 0.4
     },
     {
-      title: 'Networking Events',
-      description: 'Connect with fellow filmmakers, industry professionals, and film enthusiasts from around the globe.',
+      title: 'Mentor Sessions',
+      description: 'Gain direct insight and guidance from seasoned filmmakers, producers, and creative experts in exclusive mentor-led sessions. Refine your skills, ask questions, and build lasting connections that shape your journey in film.',
       icon: <Users className="h-12 w-12 text-white" />,
       delay: 0.6
     }

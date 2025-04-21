@@ -22,8 +22,8 @@ const WorkshopsSection = () => {
     {
       id: 1,
       title: 'Cinematography & Lighting',
-      instructor: 'Sarah Jackson',
-      date: 'July 16, 2025',
+      instructor: 'To Be Announced',
+      date: 'TBA',
       time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
       image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=500',
@@ -32,9 +32,9 @@ const WorkshopsSection = () => {
     {
       id: 2,
       title: 'Screenplay & Directing',
-      instructor: 'Michael Chen',
-      date: 'July 17, 2025',
-      time: '1:00 PM - 5:00 PM',
+      instructor: 'To Be Announced',
+      date: 'TBA',
+      time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
       image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=500',
       description: 'Explore the latest techniques in visual effects and post-production.'
@@ -42,9 +42,9 @@ const WorkshopsSection = () => {
     {
       id: 3,
       title: 'CGI & Animation / SFX',
-      instructor: 'David Kumar',
-      date: 'July 18, 2025',
-      time: '11:00 AM - 3:00 PM',
+      instructor: 'To Be Announced',
+      date: 'TBA',
+      time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
       image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=500',
       description: 'Master the art of creating immersive soundscapes for film.'

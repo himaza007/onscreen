@@ -4,9 +4,9 @@ import { useToast } from '@/components/ui/use-toast';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface HeroSectionProps {
-  onSubmitClick: () => "https://forms.gle/A1doByZs1Jjunyt76";
+  // Changed the type to accept a function that returns void
+  onSubmitClick?: () => void;
 }
-
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
   const [loading, setLoading] = useState(true);
@@ -27,6 +27,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
     }, 500);
     return () => clearTimeout(timer);
   }, []);
+
+  // Function to handle the registration click
+  const handleRegisterClick = () => {
+    window.open('https://forms.gle/A1doByZs1Jjunyt76', '_blank');
+  };
 
   return (
     <section 
@@ -93,11 +98,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             <Button 
-            onClick={() => window.open('https://forms.gle/A1doByZs1Jjunyt76', '_blank')}
-            size="lg" 
-            className="bg-festival-red hover:bg-festival-red/90 text-white tracking-wide px-10 py-6 rounded-none transition-all duration-300 text-sm uppercase border border-festival-red hover:border-white">
-            Register Now
-          </Button>
+              onClick={handleRegisterClick}
+              size="lg" 
+              className="bg-festival-red hover:bg-festival-red/90 text-white tracking-wide px-10 py-6 rounded-none transition-all duration-300 text-sm uppercase border border-festival-red hover:border-white">
+              Register Now
+            </Button>
           </motion.div>
         </div>
       </motion.div>

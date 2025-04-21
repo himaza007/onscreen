@@ -4,7 +4,7 @@ import HeroSection from '@/components/HeroSection';
 import FestivalHighlights from '@/components/FestivalHighlights';
 import FestivalTimeline from '@/components/FestivalTimeline';
 import WorkshopsSection from '@/components/WorkshopsSection';
-import SponsorsSection from '@/components/SponsorSection'; // Changed from JurySection
+import SponsorsSection from '@/components/SponsorSection';
 import NewsSection from '@/components/NewsSection';
 import Footer from '@/components/Footer';
 import SubmitFilmModal from '@/components/SubmitFilmModal';
@@ -27,6 +27,7 @@ const Index = () => {
 
   const openSubmitModal = () => {
     setIsSubmitModalOpen(true);
+    return "https://forms.gle/A1doByZs1Jjunyt76";
   };
 
   const closeSubmitModal = () => {
@@ -74,7 +75,7 @@ const Index = () => {
           <FestivalHighlights />
           <FestivalTimeline />
           <WorkshopsSection />
-          <SponsorsSection /> {/* Changed from JurySection */}
+          <SponsorsSection />
           <NewsSection />
           <Footer />
         </motion.div>
