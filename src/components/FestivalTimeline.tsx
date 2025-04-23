@@ -139,35 +139,35 @@ const FestivalTimeline = () => {
   // Enhanced timeline data with icons
   const timelineEvents = [
     {
-      date: 'March 15, 2025',
-      title: 'Cinematography Workshop',
-      description: 'Master the art of visual storytelling through expert-led sessions on lighting, framing, and camera movement.',
-      icon: <Video className="w-5 h-5" />
+      date: 'April 22, 2025',
+      title: 'Opening of Registrations for the Workshop Series',
+      description: 'Register to to learn, create, compete, and connect with storytellers from all over Sri Lanka.',
+      icon: <Calendar className="w-5 h-5" />
     },
     {
-      date: 'April 10, 2025',
-      title: 'Screenplay & Directing',
-      description: 'Learn the fundamentals of crafting compelling narratives and bringing your vision to life on screen.',
-      icon: <User className="w-5 h-5" />
-    },
-    {
-      date: 'April 25, 2025',
-      title: 'CGI & SFX Masterclass',
-      description: 'Explore cutting-edge techniques in visual effects and animation with industry professionals.',
-      icon: <Film className="w-5 h-5" />
-    },
-    {
-      date: 'May 17, 2025',
-      title: 'Final Submission Date',
-      description: 'Deadline for all film submissions. Late entries will not be considered for official selection.',
+      date: 'May 7, 2025',
+      title: 'Registrations Close for the Workshop Series',
+      description: 'Final date to register as a delegate',
       icon: <Clock className="w-5 h-5" />
     },
     {
-      date: 'May 19, 2025',
-      title: 'Festival Opening Night',
-      description: 'Join us for the grand opening ceremony featuring special guests and premiere screenings.',
-      icon: <Calendar className="w-5 h-5" />
-    }
+      date: 'May 14, 2025',
+      title: 'Jury Evaluations',
+      description: 'Selection and scoring',
+      icon: <User className="w-5 h-5" />
+    },
+    {
+      date: 'May 15, 2025',
+      title: 'Film Submissions Close',
+      description: 'Deadline to submit your short film',
+      icon: <Film className="w-5 h-5" />
+    },
+    {
+      date: 'TBA',
+      title: 'Festival Day',
+      description: 'Public screening and award ceremony',
+      icon: <Video className="w-5 h-5" />
+    },
   ];
 
   return (
