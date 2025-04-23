@@ -10,7 +10,6 @@ import TimelinePage from "./pages/TimelinePage";
 import WorkshopsPage from "./pages/WorkshopsPage";
 import SubmitPage from "./pages/SubmitPage";
 import JuryPage from "./pages/SponsorsPage";
-import NewsPage from "./pages/NewsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import SponsorsPage from "./pages/SponsorsPage";
@@ -30,7 +29,6 @@ const App = () => (
           <Route path="/workshops" element={<WorkshopsPage />} />
           <Route path="/submit" element={<SubmitPage />} />
           <Route path="/sponsors" element={<SponsorsPage />} />
-          <Route path="/news" element={<NewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

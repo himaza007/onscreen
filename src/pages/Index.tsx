@@ -5,7 +5,6 @@ import FestivalHighlights from '@/components/FestivalHighlights';
 import FestivalTimeline from '@/components/FestivalTimeline';
 import WorkshopsSection from '@/components/WorkshopsSection';
 import SponsorsSection from '@/components/SponsorSection';
-import NewsSection from '@/components/NewsSection';
 import Footer from '@/components/Footer';
 import SubmitFilmModal from '@/components/SubmitFilmModal';
 import PageTransition from '@/components/ui/pagetransition';
@@ -76,7 +75,6 @@ const Index = () => {
           <FestivalTimeline />
           <WorkshopsSection />
           <SponsorsSection />
-          <NewsSection />
           <Footer />
         </motion.div>
         

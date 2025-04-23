@@ -110,10 +110,6 @@ const TimelineEvent = ({ date, title, description, index, isInView, icon }: {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            <button className="text-xs text-festival-red hover:text-white transition-colors flex items-center gap-1 mx-auto">
-              <Info className="w-3 h-3" />
-              <span>Learn more</span>
-            </button>
           </motion.div>
         )}
         
