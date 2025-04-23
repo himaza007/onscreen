@@ -165,25 +165,6 @@ const Footer = () => {
               </li>
             </ul>
             
-            {/* Newsletter Subscription */}
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <h4 className="text-white uppercase tracking-wider text-sm font-medium mb-4">Stay Updated</h4>
-              <p className="text-white/70 text-sm mb-4">
-                Subscribe to our newsletter for festival updates and announcements.
-              </p>
-              <div className="flex space-x-0 border-b border-white/20 focus-within:border-white transition-colors duration-300">
-                <Input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="bg-transparent border-0 rounded-none text-white focus-visible:ring-0 focus-visible:ring-offset-0 px-0 h-12"
-                />
-                <Button 
-                  className="bg-transparent hover:bg-transparent text-white/70 hover:text-white transition-colors duration-300 py-3 px-4"
-                >
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-              </div>
-            </div>
           </motion.div>
         </div>
         
