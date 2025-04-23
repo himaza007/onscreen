@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,37 @@ import { motion, useInView } from 'framer-motion';
 const Footer = () => {
   const footerRef = useRef(null);
   const isInView = useInView(footerRef, { once: true, amount: 0.2 });
+  
+  // State for sticky effect
+  const [showFooter, setShowFooter] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  
+  // Sticky footer logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+      const nearBottom = window.innerHeight + currentScrollY >= document.body.offsetHeight - 200;
+      
+      // Show footer when scrolling near the bottom of the page or scrolling up from near bottom
+      if (nearBottom || (showFooter && !scrollingDown)) {
+        setShowFooter(true);
+      } else {
+        setShowFooter(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    
+    // Initial check for page position
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY, showFooter]);
   
   const currentYear = new Date().getFullYear();
   
@@ -51,11 +82,21 @@ const Footer = () => {
   return (
     <footer 
       ref={footerRef}
-      className="bg-black border-t border-white/10 relative overflow-hidden"
+      className={`bg-black border-t border-white/10 relative overflow-hidden fixed bottom-0 left-0 right-0 w-full transition-transform duration-500 ${
+        showFooter ? 'translate-y-0' : 'translate-y-full'
+      }`}
+      style={{
+        zIndex: 40,
+        // Add height based on footer content to provide proper spacing at bottom of page
+        height: 'auto', 
+        willChange: 'transform'
+      }}
     >
       {/* Background texture/pattern */}
       <div className="absolute inset-0 bg-[url('/film-grain.png')] opacity-5 mix-blend-overlay pointer-events-none"></div>
       
+      {/* Indicator bar */}
+      <div className="h-1 w-full bg-festival-red absolute top-0 left-0 right-0 transform -translate-y-full"></div>
       
       <motion.div 
         className="container mx-auto px-6 py-16"
@@ -118,7 +159,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link 
                     to={item.path} 
-                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm flex items-center"
+                    className="text-white/70 hover:text-white transition-colors duration-300 text-sm flex items-center group"
                   >
                     <span className="border-b border-transparent group-hover:border-white pb-1">{item.name}</span>
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-x-0 group-hover:translate-x-2 ml-1">
@@ -189,8 +230,41 @@ const Footer = () => {
           </div>
         </motion.div>
       </motion.div>
+      
+      {/* Footer toggle button */}
+      <button 
+        className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-festival-red text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300 shadow-lg"
+        onClick={() => setShowFooter(!showFooter)}
+        aria-label={showFooter ? "Hide footer" : "Show footer"}
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          style={{ 
+            transform: showFooter ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 0.3s ease'
+          }}
+        >
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
     </footer>
   );
 };
 
+// This component adds the necessary padding to the bottom of your layout
+// to accommodate the sticky footer
+const FooterSpacer = () => {
+  // Adjust the height to match your footer's approximate height
+  return <div style={{ height: '600px' }} />;
+};
+
+export { Footer, FooterSpacer };
 export default Footer;
