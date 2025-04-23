@@ -141,7 +141,7 @@ const FestivalTimeline = () => {
     {
       date: 'April 22, 2025',
       title: 'Opening of Registrations for the Workshop Series',
-      description: 'Register to to learn, create, compete, and connect with storytellers from all over Sri Lanka.',
+      description: 'Register to to learn, create, compete, and connect.',
       icon: <Calendar className="w-5 h-5" />
     },
     {
