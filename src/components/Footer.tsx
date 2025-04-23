@@ -121,10 +121,9 @@ const Footer = () => {
             
             <div className="flex space-x-4">
               {[
-                { icon: <Facebook size={18} />, url: "#", label: "Facebook" },
-                { icon: <Twitter size={18} />, url: "#", label: "Twitter" },
-                { icon: <Instagram size={18} />, url: "#", label: "Instagram" },
-                { icon: <Youtube size={18} />, url: "#", label: "YouTube" }
+                { icon: <Facebook size={18} />, url: "https://web.facebook.com/profile.php?id=61575084556077&rdid=OdSP7ETjqLxznLM6&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F16P1dNbhNP%2F%3F_rdc%3D1%26_rdr#", label: "Facebook" },
+                { icon: <Instagram size={18} />, url: "https://www.instagram.com/onscreen_25?igsh=MTJsbW5mMGl5dTFmYQ%3D%3D", label: "Instagram" },
+                { icon: <Youtube size={18} />, url: "https://www.youtube.com/@iitrotaract", label: "YouTube" }
               ].map((social, i) => (
                 <motion.a
                   key={i}

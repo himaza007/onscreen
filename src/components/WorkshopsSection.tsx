@@ -100,7 +100,7 @@ const WorkshopsSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {workshops.map((workshop) => (
             <motion.div 
@@ -163,11 +163,6 @@ const WorkshopsSection = () => {
                     </p>
                   )}
                   
-                  {/* Registration button */}
-                  <Button 
-                    className="w-full bg-transparent border border-festival-red text-white hover:bg-festival-red transition-all duration-300 py-6 rounded-none uppercase tracking-wider text-sm">
-                    Register Now
-                  </Button>
                 </div>
               </div>
               
