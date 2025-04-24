@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight, MessageSquare } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 const Footer = () => {
@@ -82,7 +82,7 @@ const Footer = () => {
   return (
     <footer 
       ref={footerRef}
-      className={`bg-black border-t border-white/10 relative overflow-hidden fixed bottom-0 left-0 right-0 w-full transition-transform duration-500 ${
+      className={`bg-black border-t border-white/10 relative overflow-hidden bottom-0 left-0 right-0 w-full transition-transform duration-500 ${
         showFooter ? 'translate-y-0' : 'translate-y-full'
       }`}
       style={{
@@ -123,7 +123,8 @@ const Footer = () => {
               {[
                 { icon: <Facebook size={18} />, url: "https://web.facebook.com/profile.php?id=61575084556077&rdid=OdSP7ETjqLxznLM6&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F16P1dNbhNP%2F%3F_rdc%3D1%26_rdr#", label: "Facebook" },
                 { icon: <Instagram size={18} />, url: "https://www.instagram.com/onscreen_25?igsh=MTJsbW5mMGl5dTFmYQ%3D%3D", label: "Instagram" },
-                { icon: <Youtube size={18} />, url: "https://www.youtube.com/@iitrotaract", label: "YouTube" }
+                { icon: <Youtube size={18} />, url: "https://www.youtube.com/@iitrotaract", label: "YouTube" },
+                { icon: <MessageSquare size={18} />, url: "https://whatsapp.com/channel/0029VbAfgtrJkK7EA0s5ep2Z" }
               ].map((social, i) => (
                 <motion.a
                   key={i}
@@ -152,7 +153,6 @@ const Footer = () => {
                 { name: 'Workshops', path: '/workshops' },
                 { name: 'Submit Your Film', path: '/submit' },
                 { name: 'Sponsor', path: '/sponsors' },
-                { name: 'News', path: '/news' },
                 { name: 'Contact Us', path: '/contact' },
               ].map((item) => (
                 <li key={item.name}>
@@ -188,7 +188,7 @@ const Footer = () => {
               <li className="flex items-center">
                 <Mail className="w-5 h-5 text-festival-red mr-3 flex-shrink-0" />
                 <a 
-                  href="mailto:info@onscreen25.com" 
+                  href="mailto:onscreenfilmfest@gmail.com" 
                   className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                 >
                   onscreenfilmfest@gmail.com

@@ -114,15 +114,7 @@ const TimelineEvent = ({ date, title, description, index, isInView, icon }: {
         )}
         
         {/* Vertical Connector Line for alternating pattern */}
-        <motion.div 
-          className={cn(
-            "absolute h-16 w-[1px] left-1/2 -translate-x-1/2 bg-white/10 hidden md:block",
-            isEven ? "top-full" : "bottom-full"
-          )}
-          initial={{ scaleY: 0 }}
-          animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 + (index * 0.15) }}
-        />
+
       </motion.div>
     </motion.div>
   );
@@ -215,7 +207,6 @@ const FestivalTimeline = () => {
         <div className="relative">
           {/* Main timeline track */}
           <motion.div 
-            className="absolute left-0 right-0 top-6 h-[3px] bg-gradient-to-r from-transparent via-festival-red/50 to-transparent"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={isInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}

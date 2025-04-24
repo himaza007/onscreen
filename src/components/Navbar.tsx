@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Menu, X, Facebook, Instagram, MessageSquare } from 'lucide-react';
+import { Menu, X, Facebook, Instagram, MessageSquare, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -45,13 +45,13 @@ const Navbar = () => {
     { name: 'Workshops', path: '/workshops' },
     { name: 'Submit', path: '/submit' },
     { name: 'Sponsor', path: '/sponsors' },
-    { name: 'News', path: '/news' },
     { name: 'Contact', path: '/contact' },
   ];
 
   const socialLinks = [
     { icon: <Facebook size={18} />, url: "https://www.facebook.com/share/16P1dNbhNP/" },
     { icon: <Instagram size={18} />, url: "https://www.instagram.com/onscreen_25?igsh=MTJsbW5mMGl5dTFmYQ==" },
+    { icon: <Youtube size={18} />, url: "https://www.youtube.com/@iitrotaract", label: "YouTube" },
     { icon: <MessageSquare size={18} />, url: "https://whatsapp.com/channel/0029VbAfgtrJkK7EA0s5ep2Z" }
   ];
 
