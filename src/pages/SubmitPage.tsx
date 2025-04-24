@@ -243,6 +243,7 @@ const SubmitPage = () => {
                   <div>
                     <h3 className="text-xl font-medium mb-2 text-white">Eligibility</h3>
                     <p className="text-white/80 leading-relaxed">
+                    
                       OnScreen '25 is open to all filmmakers globally, with no restrictions on age, nationality, or background. Films must be completed after January 1, 2023, and be 20 minutes or less, including credits. All genres are welcome, and student filmmakers must provide valid enrollment proof.
                     </p>
                   </div>
@@ -266,24 +267,9 @@ const SubmitPage = () => {
                     <h3 className="text-xl font-medium mb-2 text-white">Categories</h3>
                     <div className="grid grid-cols-2 gap-2 text-white/80">
                       <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-festival-red"></span>
-                        <span>Narrative Fiction</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-festival-red"></span>
-                        <span>Documentary</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-festival-red"></span>
-                        <span>Animation</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-festival-red"></span>
-                        <span>Experimental</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-festival-red"></span>
-                        <span>Hybrid / Student Films</span>
+                        <span>Open Category</span>
+                      
+                     
                       </div>
                     </div>
                   </div>
@@ -308,7 +294,7 @@ const SubmitPage = () => {
                     <ul className="space-y-2 text-white/80">
                       <li className="flex items-center">
                         <span className="text-festival-red mr-2">•</span>
-                        <span>Final Submission Deadline: May 14, 2025 (23:59 GMT+5:30)</span>
+                        <span>Final Submission Deadline: 3rd week of May</span>
                       </li>
                       <li className="flex items-center">
                         <span className="text-festival-red mr-2">•</span>
