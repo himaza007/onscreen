@@ -213,13 +213,7 @@ const FestivalTimeline = () => {
           />
           
           {/* Timeline progress indicator */}
-          <motion.div 
-            className="absolute left-0 top-[22px] w-3 h-3 rounded-full bg-festival-red z-20 shadow-lg shadow-festival-red/30"
-            initial={{ left: "0%" }}
-            animate={isInView ? { left: "95%" } : { left: "0%" }}
-            transition={{ duration: 4, ease: "easeInOut", delay: 0.5 }}
-          />
-          
+
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 relative">
             {timelineEvents.map((event, index) => (
               <TimelineEvent
