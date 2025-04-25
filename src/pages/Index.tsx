@@ -74,7 +74,7 @@ const Index = () => {
           {/* Open Graph */}
           <meta property="og:title" content="OnScreen '25 | Home" />
           <meta property="og:description" content="Join OnScreen '25 for an unforgettable festival of workshops, films, and creativity!" />
-          <meta property="og:image" content="https://yourdomain.com/og-home-image.jpg" />
+          <meta property="og:image" content="https://onscreenfestival.org/og-home-image.jpg" />
           <meta property="og:url" content="https://onscreenfestival.org/" />
           <meta property="og:type" content="website" />
           
