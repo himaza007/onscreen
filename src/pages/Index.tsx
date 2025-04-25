@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from "react-helmet-async";
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FestivalHighlights from '@/components/FestivalHighlights';
@@ -63,6 +64,24 @@ const Index = () => {
         {/* Background texture overlay */}
         <div className="fixed inset-0 bg-[url('/noise-texture.png')] opacity-[0.02] pointer-events-none z-0 mix-blend-overlay"></div>
         
+        {/* SEO Meta Tags */}
+        <Helmet>
+          <title>OnScreen '25 | Home</title>
+          <meta name="description" content="Experience OnScreen '25 – A celebration of creativity, workshops, and cinematic excellence!" />
+          <meta name="keywords" content="Film Festival, Workshops, Creativity, OnScreen 2025, Submit Films" />
+          <meta name="author" content="OnScreen Festival Team" />
+          
+          {/* Open Graph */}
+          <meta property="og:title" content="OnScreen '25 | Home" />
+          <meta property="og:description" content="Join OnScreen '25 for an unforgettable festival of workshops, films, and creativity!" />
+          <meta property="og:image" content="https://yourdomain.com/og-home-image.jpg" />
+          <meta property="og:url" content="https://onscreenfestival.org/" />
+          <meta property="og:type" content="website" />
+          
+          {/* Canonical Link */}
+          <link rel="canonical" href="https://onscreenfestival.org/" />
+        </Helmet>
+
         <Navbar />
         <HeroSection onSubmitClick={openSubmitModal} />
         
