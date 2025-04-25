@@ -78,7 +78,7 @@ const SponsorsPage = () => {
                 "By partnering with OnScreen '25, you're investing in the future of independent 
                 cinema and empowering the next generation of Sri Lankan filmmakers."
               </p>
-              <p className="text-white/60 mt-4 font-medium">— Festival Director</p>
+              <p className="text-white/60 mt-4 font-medium">— Sachira Delankawala - Chairperson</p>
             </motion.div>
           </div>
         </section>
