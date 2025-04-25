@@ -139,19 +139,19 @@ const FestivalTimeline = () => {
       icon: <Clock className="w-5 h-5" />
     },
     {
-      date: 'May 14, 2025',
+      date: '3rd week of May, 2025',
       title: 'Jury Evaluations',
       description: 'Selection and scoring',
       icon: <User className="w-5 h-5" />
     },
     {
-      date: 'May 15, 2025',
+      date: '3rd week of May, 2025',
       title: 'Film Submissions Close',
       description: 'Deadline to submit your short film',
       icon: <Film className="w-5 h-5" />
     },
     {
-      date: 'TBA',
+      date: '3rd week of May',
       title: 'Festival Day',
       description: 'Public screening and award ceremony',
       icon: <Video className="w-5 h-5" />
