@@ -53,18 +53,18 @@ const WorkshopsSection = () => {
       date: 'TBA',
       time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
-      image: 'https://images.unsplash.com/photo-1586254574632-55ca9b769656?auto=format&fit=crop&q=80&w=500',
+      image: 'https://images.unsplash.com/photo-1612197527343-bfd8f949bcd5?auto=format&fit=crop&q=80&w=500',
       description: 'Discover the latest techniques in digital visual effects, compositing, and animation. Create movie magic with industry-standard software tools.',
       type: 'workshop',
       color: 'from-purple-500 to-violet-600'
     },
     {
       id: 4,
-      title: 'Industry Edge Webinar',
-      instructor: 'Film Industry Panel',
-      date: 'TBA',
-      time: '3:00 PM - 5:00 PM',
-      location: 'Online (Zoom)',
+      title: 'Introductory Webinar',
+      instructor: 'TBA',
+      date: 'May 06th',
+      time: '7:00 PM Onwards',
+      location: 'Google Meet',
       image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?auto=format&fit=crop&q=80&w=500',
       description: 'Join leading filmmakers in this interactive webinar exploring emerging trends, technologies, and career opportunities in modern digital filmmaking.',
       type: 'webinar',
@@ -289,13 +289,25 @@ const WorkshopsSection = () => {
                   
                   {/* Registration interest button */}
                   <div className="mt-auto pt-4">
-                    <Button
-                      variant="outline"
-                      className="w-full border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2"
-                    >
-                      <span>Register Interest</span>
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Button>
+                    {workshop.id === 4 ? (
+                      <a
+                        href="https://forms.gle/p1M474g4PKZTneo99"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2 border px-4 py-2 rounded-sm text-sm"
+                      >
+                        <span>Register Interest</span>
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => alert('Registrations will open soon. Stay tuned!')}
+                        className="w-full border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2 border px-4 py-2 rounded-sm text-sm"
+                      >
+                        <span>Register Interest</span>
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

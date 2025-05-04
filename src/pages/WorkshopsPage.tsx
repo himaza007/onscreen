@@ -80,14 +80,6 @@ const WorkshopsPage = () => {
         
         {/* Header section with parallax */}
         <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
-          {/* Background image with parallax effect */}
-          <motion.div 
-            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0"
-            style={{ 
-              scale: useTransform(scrollY, [0, 300], [1, 1.1]) 
-            }}
-          />
-          
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black z-0"></div>
           
@@ -310,53 +302,6 @@ const WorkshopsPage = () => {
           <WorkshopsSection />
         </section>
         
-        {/* CTA for more information or subscribe */}
-        <section 
-          ref={ctaRef}
-          className="py-16 px-6 bg-gradient-to-b from-[#080808] to-black"
-        >
-          <div className="container mx-auto max-w-4xl">
-            <motion.div 
-              className="bg-gradient-to-r from-black to-[#121212] p-8 md:p-12 border border-white/10 rounded-sm relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isCTAInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.7 }}
-            >
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-festival-red/5 rounded-full blur-3xl pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-festival-red/10 rounded-full blur-2xl pointer-events-none"></div>
-              
-              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
-                  <div className="text-center md:text-left">
-                    <h2 className="text-2xl md:text-3xl font-medium mb-3">Stay Informed</h2>
-                    <p className="text-white/70 text-lg max-w-xl">
-                      Subscribe to receive updates about new workshops and special sessions.
-                    </p>
-                  </div>
-                  
-                  <div className="flex-shrink-0 w-full md:w-auto">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="bg-black/50 border-white/20 text-white"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                      <Button 
-                        className="bg-festival-red hover:bg-festival-red/90 text-white px-6"
-                        onClick={handleSubscribe}
-                      >
-                        Subscribe
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
         
         {/* Collapsible FAQ section */}
         <section className="py-16 px-6 bg-gradient-to-t from-black to-transparent">
