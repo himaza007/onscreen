@@ -126,21 +126,22 @@ const FestivalTimeline = () => {
   
   // Enhanced timeline data with icons
   const timelineEvents = [
+
     {
-      date: 'April 22, 2025',
-      title: 'Opening of Registrations for the Workshop Series',
-      description: 'Register to to learn, create, compete, and connect.',
-      icon: <Calendar className="w-5 h-5" />
-    },
-    {
-      date: 'May 7, 2025',
-      title: 'Registrations Close for the Workshop Series',
+      date: 'May 07, 2025',
+      title: "Registrations Close for OnScreen 25'",
       description: 'Final date to register as a delegate',
       icon: <Clock className="w-5 h-5" />
     },
     {
-      date: '3rd week of May, 2025',
-      title: 'Jury Evaluations',
+      date: 'May 09, 2025',
+      title: "Opening of Registrations for the Workshop Series'",
+      description: 'Register to to learn, create, compete, and connect.',
+      icon: <Calendar className="w-5 h-5" />
+    },
+    {
+      date: '2nd week of May, 2025',
+      title: 'Mentor Sessions',
       description: 'Selection and scoring',
       icon: <User className="w-5 h-5" />
     },
@@ -149,6 +150,12 @@ const FestivalTimeline = () => {
       title: 'Film Submissions Close',
       description: 'Deadline to submit your short film',
       icon: <Film className="w-5 h-5" />
+    },
+    {
+      date: '3rd week of May, 2025',
+      title: 'Jury Evaluations',
+      description: 'Selection and scoring',
+      icon: <User className="w-5 h-5" />
     },
     {
       date: '3rd week of May',
