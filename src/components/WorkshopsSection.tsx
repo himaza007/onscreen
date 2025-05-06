@@ -1,7 +1,15 @@
 import React, { useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, MapPin, Video, Users, Award, Lightbulb, BookOpen, Info, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, MapPin, Video, Users, Award, Lightbulb, BookOpen, Info, ArrowRight, AlertCircle } from 'lucide-react';
+import { 
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter
+} from "@/components/ui/dialog";
+import { Button } from '@/components/ui/button';
 
 interface Workshop {
   id: number;
@@ -14,12 +22,14 @@ interface Workshop {
   description?: string;
   type: 'workshop' | 'webinar' | 'awareness' | 'masterclass' | 'panel';
   color?: string;
+  registrationLink?: string;
 }
 
 const WorkshopsSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
   const [selectedWorkshop, setSelectedWorkshop] = useState<number | null>(null);
+  const [showRegistrationDialog, setShowRegistrationDialog] = useState(false);
   
   const workshops: Workshop[] = [
     {
@@ -29,7 +39,7 @@ const WorkshopsSection = () => {
       date: 'TBA',
       time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
-      image: 'https://images.unsplash.com/photo-1593414220166-085caeae0382?auto=format&fit=crop&q=80&w=500',
+      image: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       description: 'Master professional lighting techniques and camera work to tell compelling visual stories. Hands-on experience with industry-standard equipment.',
       type: 'workshop',
       color: 'from-festival-red to-orange-500'
@@ -41,7 +51,7 @@ const WorkshopsSection = () => {
       date: 'TBA',
       time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
-      image: 'https://images.unsplash.com/photo-1485846147915-69f12fbd03b9?auto=format&fit=crop&q=80&w=500',
+      image: 'https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       description: 'Learn the fundamentals of compelling storytelling, character development, and effective directing techniques from industry professionals.',
       type: 'workshop',
       color: 'from-blue-500 to-indigo-600'
@@ -53,7 +63,7 @@ const WorkshopsSection = () => {
       date: 'TBA',
       time: '10:00 AM - 2:00 PM',
       location: 'IIT Spencer',
-      image: 'https://images.unsplash.com/photo-1612197527343-bfd8f949bcd5?auto=format&fit=crop&q=80&w=500',
+      image: 'https://images.pexels.com/photos/7988086/pexels-photo-7988086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       description: 'Discover the latest techniques in digital visual effects, compositing, and animation. Create movie magic with industry-standard software tools.',
       type: 'workshop',
       color: 'from-purple-500 to-violet-600'
@@ -65,10 +75,11 @@ const WorkshopsSection = () => {
       date: 'May 06th',
       time: '7:00 PM Onwards',
       location: 'Google Meet',
-      image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?auto=format&fit=crop&q=80&w=500',
+      image: 'https://images.pexels.com/photos/6953935/pexels-photo-6953935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       description: 'Join leading filmmakers in this interactive webinar exploring emerging trends, technologies, and career opportunities in modern digital filmmaking.',
       type: 'webinar',
-      color: 'from-emerald-500 to-teal-600'
+      color: 'from-emerald-500 to-teal-600',
+      registrationLink: 'https://forms.gle/p1M474g4PKZTneo99'
     },
     {
       id: 5,
@@ -77,7 +88,7 @@ const WorkshopsSection = () => {
       date: 'TBA',
       time: '1:00 PM - 4:00 PM',
       location: 'IIT Auditorium',
-      image: 'https://images.unsplash.com/photo-1560523160-754a9e25c68f?auto=format&fit=crop&q=80&w=500',
+      image: 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       description: "Learn how to maximize your film's impact and reach through strategic festival submissions. Explore ethical considerations and social responsibility in filmmaking.",
       type: 'awareness',
       color: 'from-amber-500 to-yellow-600'
@@ -131,6 +142,11 @@ const WorkshopsSection = () => {
   // Function to toggle workshop details
   const toggleWorkshopDetails = (id: number) => {
     setSelectedWorkshop(selectedWorkshop === id ? null : id);
+  };
+
+  // Function to handle registration click for workshops without a direct link
+  const handleRegistrationClick = () => {
+    setShowRegistrationDialog(true);
   };
 
   return (
@@ -289,20 +305,20 @@ const WorkshopsSection = () => {
                   
                   {/* Registration interest button */}
                   <div className="mt-auto pt-4">
-                    {workshop.id === 4 ? (
+                    {workshop.registrationLink ? (
                       <a
-                        href="https://forms.gle/p1M474g4PKZTneo99"
+                        href={workshop.registrationLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2 border px-4 py-2 rounded-sm text-sm"
+                        className="w-full border border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2 px-4 py-2 rounded-sm text-sm"
                       >
-                        <span>Register Interest</span>
+                        <span>Register Now</span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </a>
                     ) : (
                       <button
-                        onClick={() => alert('Registrations will open soon. Stay tuned!')}
-                        className="w-full border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2 border px-4 py-2 rounded-sm text-sm"
+                        onClick={handleRegistrationClick}
+                        className="w-full border border-white/20 text-white hover:bg-festival-red hover:border-festival-red hover:text-white transition-all duration-300 group flex items-center justify-center gap-2 px-4 py-2 rounded-sm text-sm"
                       >
                         <span>Register Interest</span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -319,6 +335,42 @@ const WorkshopsSection = () => {
           ))}
         </motion.div>
       </div>
+      
+      {/* Registration Dialog */}
+      <Dialog open={showRegistrationDialog} onOpenChange={setShowRegistrationDialog}>
+        <DialogContent className="bg-[#0a0a0a] border border-white/10 text-white max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-medium flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 text-festival-red" />
+              Registration Information
+            </DialogTitle>
+            <DialogDescription className="text-white/70">
+              Workshop registrations will open soon
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="py-4">
+            <p className="text-white/80 mb-4">
+              We're finalizing the details for this workshop. Registrations will open soon - stay tuned for updates!
+            </p>
+            <div className="bg-festival-red/10 border border-festival-red/20 p-4 rounded-sm">
+              <p className="text-sm text-white/90 flex items-start gap-2">
+                <Info className="w-4 h-4 text-festival-red flex-shrink-0 mt-0.5" />
+                <span>Follow us on social media for announcements when registrations open.</span>
+              </p>
+            </div>
+          </div>
+          
+          <DialogFooter>
+            <Button 
+              onClick={() => setShowRegistrationDialog(false)}
+              className="bg-festival-red hover:bg-festival-red/90 text-white border-none w-full"
+            >
+              Got it
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       
       {/* Bottom decorative line */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-festival-red to-transparent"></div>
