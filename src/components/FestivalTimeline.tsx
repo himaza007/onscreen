@@ -42,14 +42,14 @@ const FestivalTimeline = () => {
       dateObj: new Date("2025-05-06")
     },
     { 
-      date: 'May 08, 2025', 
+      date: 'May 09, 2025', 
       title: 'The Art of Cinematography & Lighting', 
       description: 'Mastering visual storytelling through light, mood & camera work.', 
       icon: <Camera className="w-5 h-5" />,
       dateObj: new Date("2025-05-08")
     },
     { 
-      date: 'May 10, 2025', 
+      date: 'May 11, 2025', 
       title: 'Awareness Session', 
       description: 'Submission formats, judging criteria & festival insights.', 
       icon: <Info className="w-5 h-5" />,
