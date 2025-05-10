@@ -46,14 +46,14 @@ const FestivalTimeline = () => {
       title: 'The Art of Cinematography & Lighting', 
       description: 'Mastering visual storytelling through light, mood & camera work.', 
       icon: <Camera className="w-5 h-5" />,
-      dateObj: new Date("2025-05-08")
+      dateObj: new Date("2025-05-09")
     },
     { 
-      date: 'May 11, 2025', 
+      date: 'May 14, 2025', 
       title: 'Awareness Session', 
       description: 'Submission formats, judging criteria & festival insights.', 
       icon: <Info className="w-5 h-5" />,
-      dateObj: new Date("2025-05-10")
+      dateObj: new Date("2025-05-11")
     },
     { 
       date: 'May 15, 2025', 
@@ -70,14 +70,14 @@ const FestivalTimeline = () => {
       dateObj: new Date("2025-05-17")
     },
     { 
-      date: 'May 19, 2025', 
-      title: 'Synopsis / Project Proposal Deadline', 
+      date: 'May 16, 2025', 
+      title: 'Synopsis Submission', 
       description: 'Submit your film concept for initial review and feedback.', 
       icon: <Clock className="w-5 h-5" />,
       dateObj: new Date("2025-05-19")
     },
     { 
-      date: 'May 26, 2025', 
+      date: 'May 23, 2025', 
       title: 'Film Submissions Open', 
       description: 'Begin uploading your short films for the competition.', 
       icon: <Upload className="w-5 h-5" />,
@@ -194,21 +194,21 @@ const FestivalTimeline = () => {
   return (
     <section 
       ref={sectionRef}
-      className="bg-[#0c0c0c] py-32 px-8 relative overflow-hidden"
+      className="bg-[#0c0c0c] py-16 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8 relative overflow-hidden"
     >
       {/* Background and decorative elements */}
       <div className="absolute inset-0 opacity-10 bg-[url('/film-grain.png')] mix-blend-overlay pointer-events-none"></div>
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-b from-black to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
       
-      {/* Animated film reel decorations */}
+      {/* Animated film reel decorations - hidden on small screens */}
       <motion.div 
-        className="absolute -left-32 -top-32 w-64 h-64 border-4 border-white/5 rounded-full opacity-20 pointer-events-none"
+        className="absolute -left-32 -top-32 w-64 h-64 border-4 border-white/5 rounded-full opacity-20 pointer-events-none hidden md:block"
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
       <motion.div 
-        className="absolute -right-32 -bottom-32 w-80 h-80 border-4 border-white/5 rounded-full opacity-20 pointer-events-none"
+        className="absolute -right-32 -bottom-32 w-80 h-80 border-4 border-white/5 rounded-full opacity-20 pointer-events-none hidden md:block"
         animate={{ rotate: -360 }}
         transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
       />
@@ -219,21 +219,21 @@ const FestivalTimeline = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <span className="text-festival-red uppercase tracking-widest text-sm font-light inline-block mb-4">
+          <span className="text-festival-red uppercase tracking-widest text-xs sm:text-sm font-light inline-block mb-2 sm:mb-4">
             Festival Journey
           </span>
-          <h2 className="text-white text-5xl md:text-6xl font-display font-medium tracking-tight">
+          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-tight">
             Timeline of Events
           </h2>
           <motion.div 
-            className="w-20 h-1 bg-festival-red mx-auto mt-8"
+            className="w-12 sm:w-16 md:w-20 h-1 bg-festival-red mx-auto mt-4 sm:mt-6 md:mt-8"
             initial={{ width: 0 }}
             animate={isInView ? { width: "5rem" } : { width: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
-          <p className="text-white/70 max-w-2xl mx-auto mt-8 text-lg">
+          <p className="text-white/70 max-w-2xl mx-auto mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-lg px-4">
             Your roadmap through OnScreen '25 — from workshops to screenings.
             Follow our timeline to stay on track with key festival dates.
           </p>
@@ -242,24 +242,24 @@ const FestivalTimeline = () => {
         {/* Interactive Timeline */}
         <div className="relative">
           {/* Step navigation controls */}
-          <div className="w-full max-w-5xl mx-auto flex justify-between items-center mb-8">
+          <div className="w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-5xl mx-auto flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
             <button
               onClick={goToPrevEvent}
               disabled={activeEvent === 0}
               className={cn(
-                "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300",
+                "w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300",
                 activeEvent > 0 
                   ? "bg-white/10 text-white hover:bg-white/20" 
                   : "bg-white/5 text-white/30 cursor-not-allowed"
               )}
               aria-label="Previous event"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
             
-            <div className="text-white font-medium text-lg">
+            <div className="text-white font-medium text-base sm:text-lg">
               <span className="text-festival-red">{activeEvent + 1}</span>
-              <span className="mx-3 text-white/40">/</span>
+              <span className="mx-2 sm:mx-3 text-white/40">/</span>
               <span>{timelineEvents.length}</span>
             </div>
             
@@ -267,18 +267,18 @@ const FestivalTimeline = () => {
               onClick={goToNextEvent}
               disabled={activeEvent === timelineEvents.length - 1}
               className={cn(
-                "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300",
+                "w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300",
                 activeEvent < timelineEvents.length - 1 
                   ? "bg-white/10 text-white hover:bg-white/20" 
                   : "bg-white/5 text-white/30 cursor-not-allowed"
               )}
               aria-label="Next event"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
         
-          {/* Event details card with animated transitions - MOVED ABOVE THE STEP INDICATORS */}
+          {/* Event details card with animated transitions */}
           <AnimatePresence mode="wait">
             <motion.div
               key={`event-card-${activeEvent}`}
@@ -286,19 +286,19 @@ const FestivalTimeline = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-12 max-w-4xl mx-auto mb-16"
+              className="bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16"
             >
-              <div className="flex flex-col md:flex-row gap-10">
+              <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10">
                 {/* Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-24 h-24 rounded-full bg-festival-red/20 flex items-center justify-center">
+                <div className="flex-shrink-0 mx-auto md:mx-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-festival-red/20 flex items-center justify-center">
                     <motion.div
                       initial={{ scale: 0.8 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5 }}
                       className="text-festival-red"
                     >
-                      <div className="w-8 h-8 flex items-center justify-center">
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center">
                         {timelineEvents[activeEvent].icon}
                       </div>
                     </motion.div>
@@ -306,12 +306,12 @@ const FestivalTimeline = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="flex-grow">
+                <div className="flex-grow text-center md:text-left">
                   <motion.h3
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-3xl font-medium text-white mb-5"
+                    className="text-xl sm:text-2xl md:text-3xl font-medium text-white mb-3 sm:mb-4 md:mb-5"
                   >
                     {timelineEvents[activeEvent].title}
                   </motion.h3>
@@ -320,7 +320,7 @@ const FestivalTimeline = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-white/70 mb-8 text-xl leading-relaxed"
+                    className="text-white/70 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
                   >
                     {timelineEvents[activeEvent].description}
                   </motion.p>
@@ -329,66 +329,89 @@ const FestivalTimeline = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="flex items-center text-white/50 text-base"
+                    className="flex items-center text-white/50 text-sm sm:text-base justify-center md:justify-start"
                   >
-                    <Calendar className="w-6 h-6 mr-3" />
+                    <Calendar className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 sm:mr-3" />
                     {timelineEvents[activeEvent].date}
                   </motion.div>
                 </div>
               </div>
               
               {/* Navigation buttons */}
-              <div className="flex justify-between mt-14 pt-8 border-t border-white/10">
+              <div className="flex justify-between mt-6 sm:mt-10 md:mt-14 pt-6 sm:pt-8 border-t border-white/10">
                 <button
                   onClick={goToPrevEvent}
                   className={cn(
-                    "px-8 py-3 text-base rounded-full transition-all duration-300 flex items-center gap-3",
+                    "px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-xs sm:text-sm md:text-base rounded-full transition-all duration-300 flex items-center gap-2 sm:gap-3",
                     activeEvent > 0
                       ? "bg-white/10 text-white hover:bg-white/20"
                       : "bg-white/5 text-white/30 cursor-not-allowed"
                   )}
                   disabled={activeEvent === 0}
                 >
-                  <ChevronLeft className="w-5 h-5" />
-                  <span className="hidden sm:inline">Previous</span>
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="hidden xs:inline">Previous</span>
                 </button>
                 
-                <div className="text-white/60 text-base hidden md:block">
+                <div className="text-white/60 text-xs sm:text-sm md:text-base hidden md:block">
                   Click on any step below to navigate
                 </div>
                 
                 <button
                   onClick={goToNextEvent}
                   className={cn(
-                    "px-8 py-3 text-base rounded-full transition-all duration-300 flex items-center gap-3",
+                    "px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-xs sm:text-sm md:text-base rounded-full transition-all duration-300 flex items-center gap-2 sm:gap-3",
                     activeEvent < timelineEvents.length - 1
                       ? "bg-festival-red text-white hover:bg-festival-red/90"
                       : "bg-festival-red/30 text-white/50 cursor-not-allowed"
                   )}
                   disabled={activeEvent === timelineEvents.length - 1}
                 >
-                  <span className="hidden sm:inline">Next</span>
-                  <ChevronRight className="w-5 h-5" />
+                  <span className="hidden xs:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
             </motion.div>
           </AnimatePresence>
           
-          {/* Timeline steps bar - Improved Modern Style */}
-          <div className="w-full max-w-5xl mx-auto relative mb-24">
+          {/* Month progress indicator - only on larger screens */}
+          <div className="hidden sm:block w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-5xl mx-auto mb-6">
+            <div className="flex justify-between items-center text-xs text-white/60 mb-2">
+              <span>May 1</span>
+              <span>May 31</span>
+            </div>
+            <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-festival-red"
+                initial={{ width: `${progress}%` }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.8 }}
+              />
+            </div>
+          </div>
+          
+          {/* Timeline steps bar - Improved Mobile-Friendly Style */}
+          <div className="w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-5xl mx-auto relative mb-8 sm:mb-16 md:mb-24">
             {/* Progress bar background */}
-            <div className="absolute top-1/2 left-0 right-0 h-1.5 bg-white/10 -translate-y-1/2"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-1 sm:h-1.5 bg-white/10 -translate-y-1/2"></div>
             
             {/* Active progress bar */}
             <div 
-              className="absolute top-1/2 left-0 h-1.5 bg-festival-red -translate-y-1/2 transition-all duration-300 ease-in-out"
+              className="absolute top-1/2 left-0 h-1 sm:h-1.5 bg-festival-red -translate-y-1/2 transition-all duration-300 ease-in-out"
               style={{ 
                 width: `${(activeEvent / (timelineEvents.length - 1)) * 100}%`,
               }}
             ></div>
             
+            {/* Step labels for mobile - only shows 3 labels */}
+            <div className="sm:hidden flex justify-between mb-4 text-xs">
+              <span className="text-white/60">May 06</span>
+              <span className="text-white/60">May 19</span>
+              <span className="text-white/60">May 31</span>
+            </div>
+            
             {/* Step labels for small screens - only shows current and adjacent steps */}
-            <div className="md:hidden flex justify-center mb-4 text-sm space-x-4">
+            <div className="hidden sm:flex md:hidden justify-center mb-4 text-xs space-x-4">
               {activeEvent > 0 && (
                 <span className="text-white/60">{timelineEvents[activeEvent - 1].date.split(", ")[0]}</span>
               )}
@@ -399,9 +422,9 @@ const FestivalTimeline = () => {
             </div>
             
             {/* Steps container */}
-            <div className="relative h-24 overflow-hidden">
+            <div className="relative h-12 sm:h-16 md:h-20 lg:h-24 overflow-hidden">
               {/* Inner steps wrapper */}
-              <div className="absolute w-full h-full flex items-center justify-between px-3">
+              <div className="absolute w-full h-full flex items-center justify-between px-1 sm:px-2 md:px-3">
                 {timelineEvents.map((event, index) => {
                   const status = getEventStatus(event.dateObj);
                   const isActive = activeEvent === index;
@@ -418,7 +441,7 @@ const FestivalTimeline = () => {
                     >
                       {/* Date label - hidden on small screens */}
                       <div className={cn(
-                        "hidden md:block text-sm whitespace-nowrap transition-all absolute -top-10",
+                        "hidden md:block text-xs lg:text-sm whitespace-nowrap transition-all absolute -top-8 lg:-top-10",
                         isActive ? "text-festival-red font-medium" : "text-white/60"
                       )}>
                         {event.date.split(", ")[0]}
@@ -427,7 +450,7 @@ const FestivalTimeline = () => {
                       {/* Step indicator dot */}
                       <button 
                         className={cn(
-                          "w-6 h-6 rounded-full border-2 flex items-center justify-center cursor-pointer z-10 transition-all duration-300 transform",
+                          "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full border border-2 flex items-center justify-center cursor-pointer z-10 transition-all duration-300 transform",
                           isActive 
                             ? "bg-festival-red border-white scale-150" 
                             : isPast 
@@ -438,9 +461,9 @@ const FestivalTimeline = () => {
                         aria-label={`Go to event: ${event.title}`}
                       >
                         {isPast ? (
-                          <CheckCircle className="w-3 h-3 text-white" />
+                          <CheckCircle className="w-2 h-2 sm:w-3 sm:h-3 text-white" />
                         ) : isActive ? (
-                          <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-white rounded-full" />
                         ) : null}
                       </button>
                       
@@ -459,12 +482,12 @@ const FestivalTimeline = () => {
           </div>
           
           {/* List view of all events */}
-          <div className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-xl p-12 max-w-4xl mx-auto mb-12">
-            <h3 className="text-2xl font-medium text-white mb-16 text-center">Complete Festival Schedule</h3>
+          <div className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8 md:p-10 lg:p-12 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto mb-6 sm:mb-8 md:mb-12">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-white mb-8 sm:mb-12 md:mb-16 text-center">Complete Festival Schedule</h3>
             
             <div className="relative">
               {/* Vertical timeline line */}
-              <div className="absolute top-0 bottom-0 left-28 md:left-40 w-0.5 bg-white/10 ml-2.5"></div>
+              <div className="absolute top-0 bottom-0 left-20 sm:left-24 md:left-28 lg:left-40 w-0.5 bg-white/10 ml-2.5"></div>
               
               {/* Timeline events */}
               {timelineEvents.map((event, index) => {
@@ -478,15 +501,15 @@ const FestivalTimeline = () => {
                     animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -20 }}
                     transition={{ duration: 0.5, delay: 0.05 + (index * 0.05) }}
                     className={cn(
-                      "flex mb-14 group cursor-pointer",
+                      "flex mb-8 sm:mb-10 md:mb-12 lg:mb-14 group cursor-pointer",
                       isActive && "pointer-events-none"
                     )}
                     onClick={() => setActiveEvent(index)}
                   >
                     {/* Date column */}
-                    <div className="w-28 md:w-40 flex-shrink-0 text-right pr-10 py-1">
+                    <div className="w-20 sm:w-24 md:w-28 lg:w-40 flex-shrink-0 text-right pr-4 sm:pr-6 md:pr-8 lg:pr-10 py-1">
                       <span className={cn(
-                        "text-base transition-colors duration-300",
+                        "text-xs sm:text-sm md:text-base transition-colors duration-300",
                         isActive ? "text-festival-red font-medium" : "text-white/60 group-hover:text-white/80"
                       )}>
                         {event.date.split(", ")[0]}
@@ -496,7 +519,7 @@ const FestivalTimeline = () => {
                     {/* Indicator */}
                     <div className="flex-shrink-0 relative z-10">
                       <div className={cn(
-                        "w-7 h-7 rounded-full transition-all duration-300 border-2",
+                        "w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full transition-all duration-300 border-2",
                         isActive 
                           ? "bg-festival-red border-white scale-125" 
                           : status === 'past'
@@ -506,15 +529,15 @@ const FestivalTimeline = () => {
                     </div>
                     
                     {/* Content */}
-                    <div className="pl-10 py-1">
+                    <div className="pl-4 sm:pl-6 md:pl-8 lg:pl-10 py-1">
                       <h4 className={cn(
-                        "font-medium transition-colors duration-300 text-xl",
+                        "font-medium transition-colors duration-300 text-sm sm:text-base md:text-lg lg:text-xl",
                         isActive ? "text-festival-red" : "text-white group-hover:text-festival-red/80"
                       )}>
                         {event.title}
                       </h4>
                       <p className={cn(
-                        "text-lg transition-colors duration-300 mt-3 max-w-xl",
+                        "text-xs sm:text-sm md:text-base lg:text-lg transition-colors duration-300 mt-1 sm:mt-2 md:mt-3 max-w-xl line-clamp-2 sm:line-clamp-none",
                         isActive ? "text-white/90" : "text-white/60 group-hover:text-white/80"
                       )}>
                         {event.description}
@@ -529,7 +552,7 @@ const FestivalTimeline = () => {
       </div>
       
       {/* Decorative bottom element */}
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-festival-red/40 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-2 bg-gradient-to-r from-transparent via-festival-red/40 to-transparent"></div>
     </section>
   );
 };
