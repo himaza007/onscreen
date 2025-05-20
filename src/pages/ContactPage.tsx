@@ -95,9 +95,9 @@ const ContactPage = () => {
                   </div>
                   <h3 className="text-xl font-medium mb-3">Address</h3>
                   <p className="text-white/70">
-                    IIT City Office,<br />
-                    435 Galle Road<br />
-                    Colombo 03, Sri Lanka
+                    10 Trelawney Place,<br />
+                    Colombo 00400<br />
+                    Sri Lanka
                   </p>
                 </div>
               </div>
@@ -169,7 +169,7 @@ const ContactPage = () => {
             >
               <div className="h-[500px] relative">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9894335613805!2d79.85641191118089!3d6.896947718695256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a4f61762639%3A0x23c6b652a2cef89f!2sColombo%2007%2C%20Colombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1713825604162!5m2!1sen!2sus" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.1005046971253!2d79.85520407492354!3d6.876838193127845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bc5b8edc14d%3A0x5c155a982f600a91!2s10%20Trelawney%20Pl%2C%20Colombo%2000400!5e0!3m2!1sen!2slk!4v1715556929069!5m2!1sen!2slk"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -196,9 +196,9 @@ const ContactPage = () => {
                     Onscreen Committee
                   </h3>
                   <p className="text-white/70 text-sm mb-3">
-                    IIT City Office<br />
-                    435 Galle Road<br />
-                    Colombo 03, Sri Lanka
+                    10 Trelawney Place<br />
+                    Colombo 00400<br />
+                    Sri Lanka
                   </p>
                   <div className="text-xs text-white/50">Open in Google Maps for directions</div>
                 </motion.div>
@@ -213,7 +213,7 @@ const ContactPage = () => {
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
                   <a 
-                    href="https://maps.app.goo.gl/zufLkFhTHvRevBCb7" 
+                    href="https://maps.app.goo.gl/xdzpcbHQUwJjSspX8" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="bg-festival-red hover:bg-festival-red/90 text-white px-5 py-3 rounded-sm flex items-center gap-2 shadow-lg transition-all duration-300 group"
@@ -259,8 +259,8 @@ const ContactPage = () => {
               {[
                 {
                   id: 1,
-                  question: "Is there a registration fee to participate in OnScreen ‘25?",
-                  answer: "No. Participation in OnScreen ‘25 is completely free for all registered delegates, including access to workshops and the competition."
+                  question: "Is there a registration fee to participate in OnScreen '25?",
+                  answer: "No. Participation in OnScreen '25 is completely free for all registered delegates, including access to workshops and the competition."
                 },
                 {
                   id: 2,
@@ -270,7 +270,7 @@ const ContactPage = () => {
                 {
                   id: 3,
                   question: "What is the deadline for film submissions?",
-                  answer: "The final deadline for submitting short films via FilmFreeway is May 14, 2025 at 11:59 PM GMT+5:30."
+                  answer: "The final deadline for submitting short films via FilmFreeway is on the 26th of May 2025 at 11:59 PM GMT+5:30."
                 },
                 {
                   id: 4,
@@ -280,7 +280,7 @@ const ContactPage = () => {
                 {
                   id: 5,
                   question: "Will I receive a certificate or feedback for my participation?",
-                  answer: "All delegates will receive certificates of participation. Film feedback can be requested and will be provided at the discretion of the jury."
+                  answer: "All delegates will receive online certificates of participation. Film feedback can be requested and will be provided at the discretion of the jury."
                 }
               ].map((faq) => (
                 <motion.div 

@@ -180,9 +180,9 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-festival-red mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-white/70 text-sm">
-                  IIT City Office,<br/>
-                  435 Galle Road,<br/>
-                  Colombo 03, Sri Lanka
+                    10 Trelawney Place,<br />
+                    Colombo 00400<br />
+                    Sri Lanka
                 </span>
               </li>
               <li className="flex items-center">

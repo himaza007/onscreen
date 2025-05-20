@@ -79,7 +79,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            <span className="uppercase tracking-[0.3em] text-white/80 text-sm mb-4 inline-block">May 03-19, 2025 - Colombo</span>
+            <span className="uppercase tracking-[0.3em] text-white/80 text-sm mb-4 inline-block">May 03-31, 2025 - Colombo</span>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-tight">
               OnScreen <span className="text-festival-red">'25</span>
             </h1>

@@ -294,7 +294,7 @@ const SubmitPage = () => {
                     <ul className="space-y-2 text-white/80">
                       <li className="flex items-center">
                         <span className="text-festival-red mr-2">•</span>
-                        <span>Final Submission Deadline: 3rd week of May</span>
+                        <span>Final Submission Deadline: 26th of May</span>
                       </li>
                       <li className="flex items-center">
                         <span className="text-festival-red mr-2">•</span>
