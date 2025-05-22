@@ -13,6 +13,8 @@ import JuryPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import SponsorsPage from "./pages/SponsorsPage";
+import PartnersPage from '@/pages/PartnersPage';
+import EducatorsPage from '@/pages/EducatorsPage';
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/submit" element={<SubmitPage />} />
           <Route path="/sponsors" element={<SponsorsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/educators" element={<EducatorsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

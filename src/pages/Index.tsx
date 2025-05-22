@@ -11,6 +11,10 @@ import SubmitFilmModal from '@/components/SubmitFilmModal';
 import PageTransition from '@/components/ui/pagetransition';
 import { motion } from 'framer-motion';
 
+// Import our new components
+import PartnersSection from '@/components/PartnersSection';
+import EducatorsSection from '@/components/EducatorsSection';
+
 const Index = () => {
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -93,7 +97,15 @@ const Index = () => {
           <FestivalHighlights />
           <FestivalTimeline />
           <WorkshopsSection />
+          
+          {/* Add the new Educators section */}
+          <EducatorsSection compact={true} />
+          
           <SponsorsSection />
+          
+          {/* Add the new Partners section */}
+          <PartnersSection compact={true} />
+          
           <Footer />
         </motion.div>
         

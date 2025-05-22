@@ -153,6 +153,8 @@ const Footer = () => {
                 { name: 'Workshops', path: '/workshops' },
                 { name: 'Submit Your Film', path: '/submit' },
                 { name: 'Sponsor', path: '/sponsors' },
+                { name: 'Partners', path: '/partners' },
+                { name: 'Educators', path: '/educators' },
                 { name: 'Contact Us', path: '/contact' },
               ].map((item) => (
                 <li key={item.name}>
