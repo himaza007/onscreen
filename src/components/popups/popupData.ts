@@ -5,7 +5,7 @@ import { PopupData } from './types';
 export const popupData: PopupData[] = [
   {
     id: 'premiere-screening',
-    title: '🎬 Get Ready for the Big Premiere!',
+    title: 'Get Ready for the Big Premiere 🎬 ',
     message: "📅 28th June 2025 🕒 3:45 PM onwards \n 📍 Cinecity Maradana Theatre\n\nJoin us for the OnScreen ’25 official short film screening. 🎟 Free entry, but seats are limited—first come, first served. 🗳️ Cast your vote for the People's Choice Award!",
     icon: React.createElement(Film, { className: "w-6 h-6" }),
     priority: 1,
@@ -19,7 +19,7 @@ export const popupData: PopupData[] = [
   },
   {
     id: 'festival-reservation',
-    title: '🌟 Festival Day – Reserve Your Seat Now!',
+    title: 'Festival Day – Reserve Your Seat Now 🌟 ',
     message: "📅 29th June 2025\n🕒 3:00 PM onwards\n📍 IIT, GP Square, Colombo 04\n\nCelebrate the grand finale of OnScreen ’25! ✨ Featuring Chief Guest Minister of Youth Affairs and Sports. Enjoy award ceremonies and networking. 🎟 First come first serve basis.",
     icon: React.createElement(Award, { className: "w-6 h-6" }),
     priority: 2,
@@ -33,7 +33,7 @@ export const popupData: PopupData[] = [
     },
     expiresAt: new Date('2025-06-29T23:59:59'),
     showAfter: new Date('2025-01-01T00:00:00'),
-    urgent: true
+    urgent: false
   },
   {
     id: 'submission-reminder',
