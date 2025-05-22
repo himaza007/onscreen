@@ -34,69 +34,69 @@ const FestivalTimeline = () => {
   
   // Process the timeline events data with parsed dates
   const timelineEvents: TimelineEvent[] = [
-    { 
-      date: 'May 06, 2025', 
-      title: 'Introductory Webinar', 
-      description: 'A virtual session offering a glimpse into the workshops and facilitators.', 
-      icon: <Video className="w-5 h-5" />,
-      dateObj: new Date("2025-05-06")
-    },
-    { 
-      date: 'May 09, 2025', 
-      title: 'The Art of Cinematography & Lighting', 
-      description: 'Mastering visual storytelling through light, mood & camera work.', 
-      icon: <Camera className="w-5 h-5" />,
-      dateObj: new Date("2025-05-09")
-    },
-    { 
-      date: 'May 14, 2025', 
-      title: 'Awareness Session', 
-      description: 'Submission formats, judging criteria & festival insights.', 
-      icon: <Info className="w-5 h-5" />,
-      dateObj: new Date("2025-05-11")
-    },
-    { 
-      date: 'May 15, 2025', 
-      title: 'Directing & Screenwriting Masterclass', 
-      description: 'From script to screen: shaping vision, voice & impact.', 
-      icon: <BookOpen className="w-5 h-5" />,
-      dateObj: new Date("2025-05-15")
-    },
-    { 
-      date: 'May 16, 2025', 
-      title: 'Synopsis Submission', 
-      description: 'Submit your film concept for initial review and feedback.', 
-      icon: <Clock className="w-5 h-5" />,
-      dateObj: new Date("2025-05-19")
-    },
-    { 
-      date: 'May 23, 2025', 
-      title: 'Film Submissions Open', 
-      description: 'Begin uploading your short films for the competition.', 
-      icon: <Upload className="w-5 h-5" />,
-      dateObj: new Date("2025-05-26")
-    },
-    { 
-      date: 'May 26, 2025', 
-      title: 'Film Submissions Close', 
-      description: 'Deadline for submitting films. No late entries allowed.', 
-      icon: <Clock className="w-5 h-5" />,
-      dateObj: new Date("2025-05-28")
-    },
-    { 
-      date: 'May 28, 2025', 
-      title: "OnScreen 25' Premiere Day", 
-      description: 'Short Listed submissions will be screened live at Cine City Theatre', 
-      icon: <Video className="w-5 h-5" />,
-      dateObj: new Date("2025-05-28")
-    },
-    { 
-      date: 'May 29, 2025', 
-      title: "OnScreen 25' Festival", 
-      description: 'Award ceremony and nominations', 
-      icon: <Video className="w-5 h-5" />,
-      dateObj: new Date("2025-05-31")
-    }
+  { 
+    date: 'May 06, 2025', 
+    title: 'Introductory Webinar', 
+    description: '📍 Virtual (Google Meet)\n🕖 7:00 PM – 8:30 PM\nJoin us for an online kick-off: we’ll walk you through the festival journey, introduce all workshops & speakers, and answer your questions live.', 
+    icon: <Video className="w-5 h-5" />,
+    dateObj: new Date('2025-05-06')
+  },
+  { 
+    date: 'May 08, 2025', 
+    title: 'The Art of Cinematography & Lighting', 
+    description: '📍 IIT Spencer Auditorium\n🕙 10:00 AM – 2:00 PM\nHands-on workshop on camera techniques, lighting setups, mood creation & framing taught by industry pros.', 
+    icon: <Camera className="w-5 h-5" />,
+    dateObj: new Date('2025-05-08')
+  },
+  { 
+    date: 'May 10, 2025', 
+    title: 'Festival Awareness Session', 
+    description: '📍 IIT Spencer Auditorium\n🕑 1:00 PM – 3:00 PM\nEverything you need to know about submission formats, judging criteria, festival rules & best practices to maximise your impact.', 
+    icon: <Info className="w-5 h-5" />,
+    dateObj: new Date('2025-05-10')
+  },
+  { 
+    date: 'May 15, 2025', 
+    title: 'Directing & Screenwriting Masterclass', 
+    description: '📍 GP Square Building, 5th Floor\n🕠 4:30 PM – 7:30 PM\nFrom script development to directing actors: learn narrative structure, character arcs & on-set leadership.', 
+    icon: <BookOpen className="w-5 h-5" />,
+    dateObj: new Date('2025-05-15')
+  },
+  { 
+    date: 'May 19, 2025', 
+    title: 'Synopsis Submission Deadline', 
+    description: '⏳ 11:59 PM\nSubmit your 150–250 word logline & synopsis via the Google Form for initial feedback and selection to proceed.', 
+    icon: <Clock className="w-5 h-5" />,
+    dateObj: new Date('2025-05-19')
+  },
+  { 
+    date: 'May 23, 2025', 
+    title: 'Film Submissions Open', 
+    description: '📍 Online Portal\n🔗 Open at 12:00 AM\nUpload your final short film (≤20 min) and director’s statement. Please follow the naming convention precisely.', 
+    icon: <Upload className="w-5 h-5" />,
+    dateObj: new Date('2025-05-23')
+  },
+  { 
+    date: 'May 26, 2025', 
+    title: 'Film Submissions Close', 
+    description: '⏳ 11:59 PM\nLast chance to submit your completed short film and all supporting materials. Late entries will not be accepted.', 
+    icon: <Clock className="w-5 h-5" />,
+    dateObj: new Date('2025-05-26')
+  },
+  { 
+    date: 'May 28, 2025', 
+    title: "OnScreen ’25 Premiere Day", 
+    description: '📍 Cinecity Maradana Theatre\n🕒 3:45 PM onwards\nWatch the shortlisted films on the big screen, then cast your vote for the People’s Choice Award.', 
+    icon: <Video className="w-5 h-5" />,
+    dateObj: new Date('2025-05-28')
+  },
+  { 
+    date: 'May 29, 2025', 
+    title: "OnScreen ’25 Festival & Awards", 
+    description: '📍 IIT, GP Square, Colombo 04\n🕓 4:30 PM onwards\nJoin us for the finale: award announcements (Best Film, Director, etc.), networking & special guest address by Hon. Sunil Kumara Gamage.', 
+    icon: <Video className="w-5 h-5" />,
+    dateObj: new Date('2025-05-29')
+  }
   ];
   
   // Festival date range
