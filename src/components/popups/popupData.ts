@@ -12,11 +12,7 @@ export const popupData: PopupData[] = [
     category: 'premiere',
     bgGradient: 'from-red-600/30 via-orange-500/20 to-red-600/30',
     iconBg: 'bg-gradient-to-br from-red-600 to-red-700',
-    actionButton: {
-      text: 'Learn More',
-      link: '/timeline#premiere',
-      external: false
-    },
+
     expiresAt: new Date('2025-06-28T23:59:59'),
     showAfter: new Date('2025-01-01T00:00:00'),
     urgent: false
@@ -24,7 +20,7 @@ export const popupData: PopupData[] = [
   {
     id: 'festival-reservation',
     title: '🌟 Festival Day – Reserve Your Seat Now!',
-    message: "📅 29th June 2025\n🕒 3:00 PM onwards\n📍 IIT, GP Square, Colombo 04\n\nCelebrate the grand finale of OnScreen ’25! ✨ Featuring Chief Guest Sunil Kumara Gamage – Minister of Youth Affairs and Sports. Enjoy award ceremonies, screenings, and networking. 🎟 Limited seats—reserve yours today.",
+    message: "📅 29th June 2025\n🕒 3:00 PM onwards\n📍 IIT, GP Square, Colombo 04\n\nCelebrate the grand finale of OnScreen ’25! ✨ Featuring Chief Guest Minister of Youth Affairs and Sports. Enjoy award ceremonies and networking. 🎟 First come first serve basis.",
     icon: React.createElement(Award, { className: "w-6 h-6" }),
     priority: 2,
     category: 'festival',
