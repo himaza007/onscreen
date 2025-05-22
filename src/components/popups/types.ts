@@ -1,6 +1,3 @@
-// src/components/popups/types.ts
-import React from 'react';
-
 export interface PopupData {
   id: string;
   title: string;
@@ -15,9 +12,9 @@ export interface PopupData {
   category: 'premiere' | 'festival' | 'submission' | 'general';
   bgGradient: string;
   iconBg: string;
-  expiresAt?: Date; // Optional expiration date
-  showAfter?: Date; // Optional show after date
-  urgent?: boolean; // For urgent notifications
+  expiresAt?: Date;
+  showAfter?: Date;
+  urgent?: boolean;
 }
 
 export interface PopupSystemState {
@@ -25,11 +22,26 @@ export interface PopupSystemState {
   isVisible: boolean;
   dismissedPopups: Set<string>;
   hasShownOnLoad: boolean;
+  autoShowCount: number;
 }
 
 export interface PopupNotificationSystemProps {
   autoShow?: boolean;
   showDelay?: number;
   className?: string;
-  maxAutoShows?: number; // Limit auto-shows per session
+  maxAutoShows?: number;
+  onClose?: () => void;
+  forceShow?: boolean; // Force show even if dismissed
+}
+
+export interface UsePopupSystemReturn {
+  isVisible: boolean;
+  currentPopup: number;
+  visiblePopups: PopupData[];
+  showPopup: () => void;
+  hidePopup: () => void;
+  nextPopup: () => void;
+  prevPopup: () => void;
+  dismissCurrentPopup: () => void;
+  resetDismissedPopups: () => void;
 }

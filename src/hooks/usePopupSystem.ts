@@ -1,101 +1,87 @@
-// src/hooks/usePopupSystem.ts
 import { useState, useEffect, useCallback } from 'react';
 import { 
   getActivePopups, 
-  getDismissedPopups, 
-  dismissPopup as dismissPopupUtil,
-  resetDismissedPopups as resetDismissedPopupsUtil,
-  getVisiblePopups
+  getVisiblePopups, 
+  dismissPopup, 
+  resetDismissedPopups as resetDismissed,
+  getDismissedPopups,
+  getAutoShowCount,
+  setAutoShowCount,
+  shouldAutoShow
 } from '../components/popups/popupData';
-import { PopupData } from '../components/popups/types';
-
-interface UsePopupSystemReturn {
-  activePopups: PopupData[];
-  visiblePopups: PopupData[];
-  dismissedPopups: Set<string>;
-  dismissPopup: (popupId: string) => void;
-  resetDismissedPopups: () => void;
-  hasVisiblePopups: boolean;
-  urgentPopups: PopupData[];
-  getPopupsByCategory: (category: string) => PopupData[];
-  isPopupDismissed: (popupId: string) => boolean;
-}
+import { PopupData, UsePopupSystemReturn } from '../components/popups/types';
 
 export const usePopupSystem = (): UsePopupSystemReturn => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [currentPopup, setCurrentPopup] = useState<number>(0);
   const [dismissedPopups, setDismissedPopups] = useState<Set<string>>(new Set());
-  const [activePopups, setActivePopups] = useState<PopupData[]>([]);
 
-  // Load dismissed popups and active popups on mount
+  // Load initial state
   useEffect(() => {
-    const loadPopupData = () => {
-      try {
-        setDismissedPopups(getDismissedPopups());
-        setActivePopups(getActivePopups());
-      } catch (error) {
-        console.error('Error loading popup data:', error);
-      }
-    };
-
-    loadPopupData();
-
-    // Listen for storage changes to sync across tabs
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'onscreen-dismissed-popups') {
-        loadPopupData();
-      }
-    };
-
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
+    setDismissedPopups(getDismissedPopups());
   }, []);
 
-  // Filter visible popups
-  const visiblePopups = getVisiblePopups().filter(popup => !dismissedPopups.has(popup.id));
+  const visiblePopups = getVisiblePopups();
 
-  // Get urgent popups
-  const urgentPopups = visiblePopups.filter(popup => popup.urgent);
-
-  // Dismiss a popup
-  const dismissPopup = useCallback((popupId: string) => {
-    try {
-      dismissPopupUtil(popupId);
-      const newDismissed = new Set(dismissedPopups);
-      newDismissed.add(popupId);
-      setDismissedPopups(newDismissed);
-    } catch (error) {
-      console.error('Error dismissing popup:', error);
+  const showPopup = useCallback(() => {
+    const popups = getVisiblePopups();
+    if (popups.length > 0) {
+      setCurrentPopup(0);
+      setIsVisible(true);
     }
-  }, [dismissedPopups]);
+  }, []);
 
-  // Reset all dismissed popups
+  const hidePopup = useCallback(() => {
+    setIsVisible(false);
+  }, []);
+
+  const nextPopup = useCallback(() => {
+    const popups = getVisiblePopups();
+    if (popups.length > 1) {
+      setCurrentPopup((prev) => (prev + 1) % popups.length);
+    }
+  }, []);
+
+  const prevPopup = useCallback(() => {
+    const popups = getVisiblePopups();
+    if (popups.length > 1) {
+      setCurrentPopup((prev) => (prev === 0 ? popups.length - 1 : prev - 1));
+    }
+  }, []);
+
+  const dismissCurrentPopup = useCallback(() => {
+    const popups = getVisiblePopups();
+    const currentPopupData = popups[currentPopup];
+    
+    if (currentPopupData) {
+      dismissPopup(currentPopupData.id);
+      setDismissedPopups(getDismissedPopups());
+      
+      const remainingPopups = popups.filter(p => p.id !== currentPopupData.id);
+      if (remainingPopups.length === 0) {
+        setIsVisible(false);
+      } else {
+        const nextIndex = currentPopup >= remainingPopups.length ? 0 : currentPopup;
+        setCurrentPopup(nextIndex);
+      }
+    }
+  }, [currentPopup]);
+
   const resetDismissedPopups = useCallback(() => {
-    try {
-      resetDismissedPopupsUtil();
-      setDismissedPopups(new Set());
-    } catch (error) {
-      console.error('Error resetting dismissed popups:', error);
-    }
+    resetDismissed();
+    setDismissedPopups(new Set());
+    setAutoShowCount(0);
   }, []);
-
-  // Get popups by category
-  const getPopupsByCategory = useCallback((category: string) => {
-    return activePopups.filter(popup => popup.category === category);
-  }, [activePopups]);
-
-  // Check if a specific popup is dismissed
-  const isPopupDismissed = useCallback((popupId: string) => {
-    return dismissedPopups.has(popupId);
-  }, [dismissedPopups]);
 
   return {
-    activePopups,
+    isVisible,
+    currentPopup,
     visiblePopups,
-    dismissedPopups,
-    dismissPopup,
-    resetDismissedPopups,
-    hasVisiblePopups: visiblePopups.length > 0,
-    urgentPopups,
-    getPopupsByCategory,
-    isPopupDismissed
+    showPopup,
+    hidePopup,
+    nextPopup,
+    prevPopup,
+    dismissCurrentPopup,
+    resetDismissedPopups
   };
 };

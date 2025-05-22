@@ -27,9 +27,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Function to handle the registration click
-  const handleRegisterClick = () => {
-    window.open('https://forms.gle/A1doByZs1Jjunyt76', '_blank');
+  // Function to handle the submit film click - navigate to submit page
+  const handleSubmitFilmClick = () => {
+    // Navigate to submit page using React Router or window.location
+    window.location.href = '/submit';
+    
+    // If using React Router, you would use:
+    // navigate('/submit');
+    
+    // Call the optional callback if provided
+    if (onSubmitClick) {
+      onSubmitClick();
+    }
   };
 
   return (
@@ -94,10 +103,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             <Button 
-              onClick={handleRegisterClick}
+              onClick={handleSubmitFilmClick}
               size="lg" 
               className="bg-festival-red hover:bg-festival-red/90 text-white tracking-wide px-10 py-6 rounded-none transition-all duration-300 text-sm uppercase border border-festival-red hover:border-white">
-              Register Now
+              Submit Your Film
             </Button>
           </motion.div>
         </div>

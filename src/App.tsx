@@ -40,9 +40,10 @@ const App = () => (
           
           {/* OnScreen '25 Popup Notification System */}
           <PopupNotificationSystem 
-            autoShow={true}
-            showDelay={300}
-            maxAutoShows={1}
+                    autoShow={true}
+                    showDelay={1500}
+                    maxAutoShows={1}
+                    forceShow={false}
           />
         </BrowserRouter>
       </TooltipProvider>

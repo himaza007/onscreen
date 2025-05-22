@@ -3,12 +3,11 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/ui/pagetransition';
 import { Button } from '@/components/ui/button';
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Check, Calendar, DollarSign, Film, FileVideo, X, Clock, Award, User, ThumbsUp } from 'lucide-react';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { Check, Calendar, DollarSign, Film, FileVideo, Clock, Award, User, ThumbsUp } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const SubmitPage = () => {
-  const [showNotice, setShowNotice] = useState(false);
   const { toast } = useToast();
   const headerRef = useRef(null);
   const contentRef = useRef(null);
@@ -22,25 +21,9 @@ const SubmitPage = () => {
   const parallaxY3 = useTransform(scrollY, [0, 500], [0, -70]);
   const parallaxOpacity = useTransform(scrollY, [0, 300], [1, 0.6]);
 
-  const openSubmissionNotice = () => {
-    setShowNotice(true);
-    // Prevent scrolling when notice is open
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeSubmissionNotice = () => {
-    setShowNotice(false);
-    // Allow scrolling again
-    document.body.style.overflow = '';
-  };
-
-  const notifyMe = (email) => {
-    toast({
-      title: "You're on the list!",
-      description: "We'll notify you when submissions open.",
-      variant: "default",
-    });
-    closeSubmissionNotice();
+  // Function to handle film submission - redirect to Google Form
+  const handleSubmitFilm = () => {
+    window.open('https://forms.gle/yhDCfm87LVniqWPT7', '_blank', 'noopener,noreferrer');
   };
 
   // Animated film reel decorations
@@ -161,7 +144,7 @@ const SubmitPage = () => {
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Button 
-                  onClick={openSubmissionNotice}
+                  onClick={handleSubmitFilm}
                   size="lg" 
                   className="bg-festival-red hover:bg-festival-red/90 text-white font-medium px-10 py-6 text-lg rounded-sm border border-festival-red hover:border-white transition-all duration-300 shadow-lg shadow-festival-red/20"
                 >
@@ -243,7 +226,6 @@ const SubmitPage = () => {
                   <div>
                     <h3 className="text-xl font-medium mb-2 text-white">Eligibility</h3>
                     <p className="text-white/80 leading-relaxed">
-                    
                       OnScreen '25 is open to all filmmakers globally, with no restrictions on age, nationality, or background. Films must be completed after January 1, 2023, and be 20 minutes or less, including credits. All genres are welcome, and student filmmakers must provide valid enrollment proof.
                     </p>
                   </div>
@@ -268,8 +250,6 @@ const SubmitPage = () => {
                     <div className="grid grid-cols-2 gap-2 text-white/80">
                       <div className="flex items-center gap-2">
                         <span>Open Category</span>
-                      
-                     
                       </div>
                     </div>
                   </div>
@@ -344,7 +324,7 @@ const SubmitPage = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <Button 
-                    onClick={openSubmissionNotice}
+                    onClick={handleSubmitFilm}
                     size="lg" 
                     className="bg-white hover:bg-white/90 text-black hover:text-black font-medium px-8 py-6 text-lg rounded-sm transition-colors shadow-lg shadow-white/10"
                   >
@@ -438,67 +418,32 @@ const SubmitPage = () => {
               >
                 Join the community of innovative filmmakers showcasing their talent at Sri Lanka's premier short film festival.
               </motion.p>
+              
+              {/* Additional CTA button at the bottom */}
+              <motion.div
+                className="mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: false, amount: 0.3 }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <Button 
+                    onClick={handleSubmitFilm}
+                    size="lg" 
+                    className="bg-festival-red hover:bg-festival-red/90 text-white font-medium px-8 py-4 text-base rounded-sm border border-festival-red hover:border-white transition-all duration-300 shadow-lg shadow-festival-red/20"
+                  >
+                    Start Your Submission
+                  </Button>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </section>
-        
-        {/* Submissions coming soon notice modal */}
-        <AnimatePresence>
-          {showNotice && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4"
-            >
-              <motion.div
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                className="bg-[#0a0a0a] border border-white/10 max-w-md w-full p-8 rounded-sm relative"
-              >
-                <button 
-                  onClick={closeSubmissionNotice}
-                  className="absolute top-4 right-4 text-white/60 hover:text-white"
-                >
-                  <X size={24} />
-                </button>
-                
-                <div className="text-center mb-6">
-                  <motion.div
-                    animate={{ 
-                      rotateY: [0, 180, 360],
-                      scale: [1, 1.2, 1]
-                    }}
-                    transition={{ 
-                      duration: 3,
-                      repeat: Infinity,
-                      repeatType: "loop"
-                    }}
-                    className="inline-block mb-4"
-                  >
-                    <Clock className="w-16 h-16 text-festival-red" />
-                  </motion.div>
-                  
-                  <h3 className="text-2xl font-display font-medium mb-2">Submissions Opening Soon</h3>
-                  <p className="text-white/70">
-                    We're excited about your interest! Film submissions for OnScreen '25 will open soon.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <div className="text-center">
-                    <Button 
-                      onClick={closeSubmissionNotice}
-                      className="bg-transparent hover:bg-white/5 border border-white/20 text-white/60 hover:text-white"
-                    >
-                      Close
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
         
         <Footer />
       </div>
