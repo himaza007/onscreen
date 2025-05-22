@@ -6,7 +6,7 @@ export const popupData: PopupData[] = [
   {
     id: 'premiere-screening',
     title: 'Get Ready for the Big Premiere 🎬 ',
-    message: "📅 28th June 2025 🕒 3:45 PM onwards \n 📍 Cinecity Maradana Theatre\n\nJoin us for the OnScreen ’25 official short film screening. 🎟 Free entry, but seats are limited—first come, first served. 🗳️ Cast your vote for the People's Choice Award!",
+    message: "📅 : 28th June 2025 🕒 : 3:45 PM onwards \n 📍 : Cinecity Maradana Theatre. Join us for the OnScreen ’25 official short film screening. Free entry, but seats are limited—first come, first served. Cast your vote for the People's Choice Award!",
     icon: React.createElement(Film, { className: "w-6 h-6" }),
     priority: 1,
     category: 'premiere',
@@ -20,7 +20,7 @@ export const popupData: PopupData[] = [
   {
     id: 'festival-reservation',
     title: 'Festival Day – Reserve Now 🌟 ',
-    message: "📅 29th June 2025\n🕒 3:00 PM onwards\n📍 IIT, GP Square, Colombo 04\n\nCelebrate the grand finale of OnScreen ’25! ✨ Featuring Chief Guest Minister of Youth Affairs and Sports. Enjoy award ceremonies and networking. 🎟 First come first serve basis.",
+    message: "📅 : 29th June 2025\n🕒 : 3:00 PM onwards\n📍 : IIT, GP Square, Colombo 04\n\n👔 : Formal attire. Celebrate the grand finale of OnScreen ’25! Enjoy award ceremonies and networking. First come first serve basis.",
     icon: React.createElement(Award, { className: "w-6 h-6" }),
     priority: 2,
     category: 'festival',
@@ -38,7 +38,7 @@ export const popupData: PopupData[] = [
   {
     id: 'submission-reminder',
     title: 'Final Call – Submit Your Short Film ⏳ ',
-    message: "📅 Deadline: 26th May 2025\n\nSubmit your short film and script to be part of Sri Lanka’s premier youth-led film festival. 📝 Follow all submission and naming guidelines carefully before uploading.",
+    message: "📅 Deadline: 26th May 2025 at 🕒 : 11:59 PM. Submit your short film and script to be part of Sri Lanka’s premier youth-led film festival. Follow all submission and naming guidelines carefully before uploading.",
     icon: React.createElement(Clock, { className: "w-6 h-6" }),
     priority: 3,
     category: 'submission',
