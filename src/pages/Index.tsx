@@ -104,7 +104,7 @@ const Index = () => {
           <SponsorsSection />
           
           {/* Add the new Partners section */}
-          <PartnersSection compact={true} />
+          <PartnersSection />
           
           <Footer />
         </motion.div>

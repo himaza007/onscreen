@@ -9,36 +9,43 @@ import About from "./pages/About";
 import TimelinePage from "./pages/TimelinePage";
 import WorkshopsPage from "./pages/WorkshopsPage";
 import SubmitPage from "./pages/SubmitPage";
-import JuryPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import SponsorsPage from "./pages/SponsorsPage";
 import PartnersPage from '@/pages/PartnersPage';
 import EducatorsPage from '@/pages/EducatorsPage';
+import { PopupNotificationSystem } from '@/components/popups';
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/timeline" element={<TimelinePage />} />
-          <Route path="/workshops" element={<WorkshopsPage />} />
-          <Route path="/submit" element={<SubmitPage />} />
-          <Route path="/sponsors" element={<SponsorsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/partners" element={<PartnersPage />} />
-          <Route path="/educators" element={<EducatorsPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/timeline" element={<TimelinePage />} />
+            <Route path="/workshops" element={<WorkshopsPage />} />
+            <Route path="/submit" element={<SubmitPage />} />
+            <Route path="/sponsors" element={<SponsorsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/partners" element={<PartnersPage />} />
+            <Route path="/educators" element={<EducatorsPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          
+          {/* OnScreen '25 Popup Notification System */}
+          <PopupNotificationSystem 
+            autoShow={true}
+            showDelay={300}
+            maxAutoShows={1}
+          />
+        </BrowserRouter>
+      </TooltipProvider>
     </HelmetProvider>
   </QueryClientProvider>
 );

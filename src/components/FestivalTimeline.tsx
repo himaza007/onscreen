@@ -63,13 +63,6 @@ const FestivalTimeline = () => {
       dateObj: new Date("2025-05-15")
     },
     { 
-      date: 'May 17, 2025', 
-      title: 'Visual Effects in Focus: CGI, Animation & SFX', 
-      description: 'Crafting immersive worlds using modern VFX techniques.', 
-      icon: <Film className="w-5 h-5" />,
-      dateObj: new Date("2025-05-17")
-    },
-    { 
       date: 'May 16, 2025', 
       title: 'Synopsis Submission', 
       description: 'Submit your film concept for initial review and feedback.', 
@@ -84,16 +77,23 @@ const FestivalTimeline = () => {
       dateObj: new Date("2025-05-26")
     },
     { 
-      date: 'May 28, 2025', 
+      date: 'May 26, 2025', 
       title: 'Film Submissions Close', 
       description: 'Deadline for submitting films. No late entries allowed.', 
       icon: <Clock className="w-5 h-5" />,
       dateObj: new Date("2025-05-28")
     },
     { 
-      date: 'May 31, 2025', 
-      title: 'Festival Day & Screenings', 
-      description: 'Live screenings, jury evaluations & awards ceremony.', 
+      date: 'May 28, 2025', 
+      title: "OnScreen 25' Premiere Day", 
+      description: 'Short Listed submissions will be screened live at Cine City Theatre', 
+      icon: <Video className="w-5 h-5" />,
+      dateObj: new Date("2025-05-28")
+    },
+    { 
+      date: 'May 29, 2025', 
+      title: "OnScreen 25' Festival", 
+      description: 'Award ceremony and nominations', 
       icon: <Video className="w-5 h-5" />,
       dateObj: new Date("2025-05-31")
     }
@@ -450,7 +450,7 @@ const FestivalTimeline = () => {
                       {/* Step indicator dot */}
                       <button 
                         className={cn(
-                          "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full border border-2 flex items-center justify-center cursor-pointer z-10 transition-all duration-300 transform",
+                          "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full border-2 flex items-center justify-center cursor-pointer z-10 transition-all duration-300 transform",
                           isActive 
                             ? "bg-festival-red border-white scale-150" 
                             : isPast 
