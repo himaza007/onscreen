@@ -37,7 +37,7 @@ export const popupData: PopupData[] = [
   },
   {
     id: 'submission-reminder',
-    title: '⏳ Final Call – Submit Your Short Film!',
+    title: 'Final Call – Submit Your Short Film ⏳ ',
     message: "📅 Deadline: 26th May 2025\n\nSubmit your short film and script to be part of Sri Lanka’s premier youth-led film festival. 📝 Follow all submission and naming guidelines carefully before uploading.",
     icon: React.createElement(Clock, { className: "w-6 h-6" }),
     priority: 3,
