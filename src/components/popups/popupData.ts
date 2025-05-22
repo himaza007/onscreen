@@ -19,7 +19,7 @@ export const popupData: PopupData[] = [
   },
   {
     id: 'festival-reservation',
-    title: 'Festival Day – Reserve Your Seat Now 🌟 ',
+    title: 'Festival Day – Reserve Now 🌟 ',
     message: "📅 29th June 2025\n🕒 3:00 PM onwards\n📍 IIT, GP Square, Colombo 04\n\nCelebrate the grand finale of OnScreen ’25! ✨ Featuring Chief Guest Minister of Youth Affairs and Sports. Enjoy award ceremonies and networking. 🎟 First come first serve basis.",
     icon: React.createElement(Award, { className: "w-6 h-6" }),
     priority: 2,
