@@ -6,7 +6,7 @@ export const popupData: PopupData[] = [
   {
     id: 'premiere-screening',
     title: '🎬 Get Ready for the Big Premiere!',
-    message: "📅 28th June 2025\n🕒 3:45 PM onwards\n📍 Cinecity Maradana Theatre\n\nJoin us for the OnScreen ’25 official short film screening. 🎟 Free entry, but seats are limited—first come, first served. 🗳️ Cast your vote for the People's Choice Award!",
+    message: "📅 28th June 2025 🕒 3:45 PM onwards \n 📍 Cinecity Maradana Theatre\n\nJoin us for the OnScreen ’25 official short film screening. 🎟 Free entry, but seats are limited—first come, first served. 🗳️ Cast your vote for the People's Choice Award!",
     icon: React.createElement(Film, { className: "w-6 h-6" }),
     priority: 1,
     category: 'premiere',
