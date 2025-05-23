@@ -7,7 +7,6 @@ import FestivalTimeline from '@/components/FestivalTimeline';
 import WorkshopsSection from '@/components/WorkshopsSection';
 import SponsorsSection from '@/components/SponsorSection';
 import Footer from '@/components/Footer';
-import SubmitFilmModal from '@/components/SubmitFilmModal';
 import PageTransition from '@/components/ui/pagetransition';
 import { motion } from 'framer-motion';
 
@@ -16,7 +15,6 @@ import PartnersSection from '@/components/PartnersSection';
 import EducatorsSection from '@/components/EducatorsSection';
 
 const Index = () => {
-  const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   // Page loading animation effect
@@ -28,15 +26,6 @@ const Index = () => {
     
     return () => clearTimeout(timer);
   }, []);
-
-  const openSubmitModal = () => {
-    setIsSubmitModalOpen(true);
-    return "https://forms.gle/A1doByZs1Jjunyt76";
-  };
-
-  const closeSubmitModal = () => {
-    setIsSubmitModalOpen(false);
-  };
   
   // Page loading overlay 
   if (loading) {
@@ -87,7 +76,7 @@ const Index = () => {
         </Helmet>
 
         <Navbar />
-        <HeroSection onSubmitClick={openSubmitModal} />
+        <HeroSection />
         
         <motion.div
           initial={{ opacity: 0 }}
@@ -108,8 +97,6 @@ const Index = () => {
           
           <Footer />
         </motion.div>
-        
-        <SubmitFilmModal isOpen={isSubmitModalOpen} onClose={closeSubmitModal} />
       </div>
     </PageTransition>
   );

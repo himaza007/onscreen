@@ -29,17 +29,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
 
   // Function to handle the submit film click - navigate to submit page
   const handleSubmitFilmClick = () => {
-    // Navigate to submit page using React Router or window.location
+    // Direct navigation to submit page - no modal
     window.location.href = '/submit';
-    
-    // If using React Router, you would use:
-    // navigate('/submit');
-    //updated version
-    
-    // Call the optional callback if provided
-    if (onSubmitClick) {
-      onSubmitClick();
-    }
   };
 
   return (
