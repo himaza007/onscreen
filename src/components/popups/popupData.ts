@@ -46,7 +46,7 @@ export const popupData: PopupData[] = [
     iconBg: 'bg-gradient-to-br from-orange-500 to-amber-600',
     actionButton: {
       text: 'Submit Film',
-      link: '/submit',
+      link: 'https://forms.gle/yhDCfm87LVniqWPT7',
       external: false
     },
     expiresAt: new Date('2025-05-26T23:59:59'),
