@@ -34,6 +34,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
     
     // If using React Router, you would use:
     // navigate('/submit');
+    //updated version
     
     // Call the optional callback if provided
     if (onSubmitClick) {
