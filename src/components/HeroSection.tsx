@@ -31,7 +31,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSubmitClick }) => {
   // Enhanced navigation function with loading state
   const handleSubmitFilmClick = () => {
     // Add a subtle loading effect before navigation
-    window.location.href = '/submit';
+    window.location.href = 'https://forms.gle/yhDCfm87LVniqWPT7';
   };
 
   // Modern button component with advanced animations
