@@ -79,7 +79,6 @@ const WorkshopsSection = () => {
       description: 'Join leading filmmakers in this interactive webinar exploring emerging trends, technologies, and career opportunities in modern digital filmmaking.',
       type: 'webinar',
       color: 'from-emerald-500 to-teal-600',
-      registrationLink: 'https://forms.gle/p1M474g4PKZTneo99'
     },
     {
       id: 5,
@@ -345,13 +344,13 @@ const WorkshopsSection = () => {
               Registration Information
             </DialogTitle>
             <DialogDescription className="text-white/70">
-              Workshop registrations will open soon
+              Stay Tuned till our next workshop Series
             </DialogDescription>
           </DialogHeader>
           
           <div className="py-4">
             <p className="text-white/80 mb-4">
-              We're finalizing the details for this workshop. Registrations will open soon - stay tuned for updates!
+              We're done for the year - stay tuned for updates!
             </p>
             <div className="bg-festival-red/10 border border-festival-red/20 p-4 rounded-sm">
               <p className="text-sm text-white/90 flex items-start gap-2">
